@@ -1,3 +1,7 @@
+html {
+  margin-left: 1.8rem;
+  margin-right: 1.8rem;
+}
 body {
   font-size: 14.875;
 }
@@ -28,8 +32,21 @@ a {
 }
 code {
   font-family: Inconsolata !important;
-  background-color: #f7f7f7 !important;
   padding: .2rem .3rem;
 }
 code { white-space: nowrap; }
 pre code { white-space: pre; }
+pre {
+  overflow: auto;
+  background-color: #f7f7f7;
+}
+
+@media only screen and (max-width: 340px) {
+  html {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  #content ul li {
+    flex-flow: column nowrap;
+  }
+}
