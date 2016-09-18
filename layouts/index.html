@@ -1,0 +1,7 @@
+{{ define "main" }}
+  <ul class="ph0">
+    {{ range where .Data.Pages "Type" "!=" "custom"}}
+      {{ .Render "li" }}
+    {{ end }}
+  </ul>
+{{ end }}

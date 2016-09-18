@@ -1,0 +1,17 @@
+baseurl = "http://code.matsu.io/"
+languageCode = "en-us"
+title = "code.matsu"
+
+uglyurls = true
+
+disableSitemap = true
+
+hasCJKLanguage = true
+
+[Params]
+  DateForm = "2006-01-02"
+
+[blackfriday]
+  smartpants = false
+  extensions = ["hardLineBreak"]
+  plainIDAnchors = true

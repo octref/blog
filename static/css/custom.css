@@ -1,0 +1,10 @@
+a {
+  outline: none !important;
+}
+#content a {
+  color: #6f92ba;
+  transition: color .4s;
+}
+#content a:hover, #content a:focus {
+  color: #4772a3;
+}

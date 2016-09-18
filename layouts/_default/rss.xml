@@ -1,0 +1,14 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Site.Title }} </title>
+    <link>http://code.matsu.io</link>
+
+    {{ range .Data.Pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>http://code.matsu.io{{ .RelPermalink }}</link>
+    </item>
+    {{ end }}
+
+  </channel>
+</rss>
