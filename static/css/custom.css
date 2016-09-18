@@ -38,6 +38,7 @@ code { white-space: nowrap; }
 pre code { white-space: pre; }
 pre {
   overflow: auto;
+  overflow-wrap: break-word;
   background-color: #f7f7f7;
 }
 
