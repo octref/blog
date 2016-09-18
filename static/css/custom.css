@@ -8,6 +8,15 @@ a {
 #content a:hover, #content a:focus {
   color: #4772a3;
 }
+#content > ul,
+#content #text > * {
+  max-width: 34em;
+  margin-left: auto;
+  margin-right: auto;
+}
+#content #text pre {
+  max-width: 44em;
+}
 pre code {
   font-family: Inconsolata;
 }

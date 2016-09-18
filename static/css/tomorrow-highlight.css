@@ -57,6 +57,8 @@
 
 .hljs {
   display: block;
+  padding: 1em;
+  background-color: #f7f7f7;
 }
 
 .hljs-emphasis {
