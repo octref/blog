@@ -33,6 +33,7 @@ a {
 code {
   font-family: Inconsolata !important;
   padding: .2rem .3rem;
+  background-color: #f7f7f7;
 }
 code { white-space: nowrap; }
 pre code { white-space: pre; }
