@@ -1,3 +1,7 @@
+body {
+  font-size: 14.875;
+}
+
 a {
   outline: none !important;
 }
@@ -8,15 +12,24 @@ a {
 #content a:hover, #content a:focus {
   color: #4772a3;
 }
+
+#header {
+  max-width: 34rem;
+}
+
 #content > ul,
 #content #text > * {
-  max-width: 34em;
+  max-width: 34rem;
   margin-left: auto;
   margin-right: auto;
 }
 #content #text pre {
-  max-width: 44em;
+  max-width: 44rem;
 }
-pre code {
-  font-family: Inconsolata;
+code {
+  font-family: Inconsolata !important;
+  background-color: #f7f7f7 !important;
+  padding: .2rem .3rem;
 }
+code { white-space: nowrap; }
+pre code { white-space: pre; }
