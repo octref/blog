@@ -3,7 +3,7 @@
     <title>{{ .Site.Title }} </title>
     <link>http://code.matsu.io</link>
 
-    {{ range .Data.Pages }}
+    {{ range where .Data.Pages "Type" "!=" "custom"}}
     <item>
       <title>{{ .Title }}</title>
       <link>http://code.matsu.io{{ .RelPermalink }}</link>
