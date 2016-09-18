@@ -4,9 +4,8 @@ title = "code.matsu"
 
 uglyurls = true
 
-disableSitemap = true
-
 hasCJKLanguage = true
+disableSitemap = true
 
 [Params]
   DateForm = "2006-01-02"

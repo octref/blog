@@ -8,3 +8,6 @@ a {
 #content a:hover, #content a:focus {
   color: #4772a3;
 }
+pre code {
+  font-family: Inconsolata;
+}
