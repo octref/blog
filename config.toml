@@ -12,5 +12,4 @@ disableSitemap = true
 
 [blackfriday]
   smartpants = false
-  extensions = ["hardLineBreak"]
   plainIDAnchors = true
