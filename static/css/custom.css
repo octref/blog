@@ -21,6 +21,17 @@ a {
   max-width: 34rem;
 }
 
+#header a {
+  border-bottom: 1px solid #fff;
+  transition: all .15s ease-in-out;
+}
+#header a:hover, #header a:focus {
+  border-bottom: 1px solid #777;
+}
+#header a.active {
+  border-bottom: 1px solid #777;
+}
+
 #content > ul,
 #content #text > * {
   max-width: 34rem;
@@ -31,6 +42,7 @@ a {
 #content #text figure {
   max-width: 44rem;
 }
+
 code {
   font-family: Inconsolata !important;
   border-radius: 2px;

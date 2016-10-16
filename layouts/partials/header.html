@@ -1,9 +1,15 @@
 <header id="header" class="measure-wide center mt6 mb4">
   <nav>
     <div class="mb2 dib">
-      <a class="gray link dim" href="/" title="code">code</a>
-      .
-      <a class="gray link dim" href="/about" title="matsu">matsu</a>
+      {{ if eq .Type "page" }}
+        <a class="gray link active" href="/" title="code">code</a>
+        .
+        <a class="gray link" href="/about" title="matsu">matsu</a>
+      {{ else }}
+        <a class="gray link" href="/" title="code">code</a>
+        .
+        <a class="gray link active" href="/about" title="matsu">matsu</a>
+      {{ end }}
     </div>
   </nav>
 </header>
