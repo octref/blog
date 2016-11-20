@@ -1,4 +1,4 @@
 <li class="flex justify-between pb3">
-  <a class="link" href="{{ trim .RelPermalink ".html" }}">{{ .Title }}</a>
+  <a class="link" href="{{ substr .RelPermalink 0 -5 }}">{{ .Title }}</a>
   <span class="date gray">{{ .Date.Format "2006-01-02" }}</span>
 </li>
