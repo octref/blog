@@ -10,6 +10,13 @@ body {
   font-size: 14.875;
 }
 
+#content hr {
+  border-top: none;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  max-width: 44rem !important;
+}
+
 a {
   outline: none !important;
 }
