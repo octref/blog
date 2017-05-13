@@ -33,14 +33,16 @@ a {
 }
 
 #header a {
-  border-bottom: 1px solid #fff;
+  padding: 1px 2px;
   transition: all .15s ease-in-out;
 }
 #header a:hover, #header a:focus {
-  border-bottom: 1px solid #777;
+  background-color: rgba(119, 119, 119, .7);
+  color: #fff;
 }
 #header a.active {
-  border-bottom: 1px solid #777;
+  background-color: #777;
+  color: #fff;
 }
 
 #content > ul,
