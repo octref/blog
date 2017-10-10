@@ -19,6 +19,7 @@ body {
 
 a {
   outline: none !important;
+  text-decoration: none;
 }
 #content a {
   color: #6f92ba;
