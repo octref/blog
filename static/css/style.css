@@ -1,3 +1,5 @@
+@import "https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css";
+
 ::-webkit-scrollbar {
   display: none;
 }
