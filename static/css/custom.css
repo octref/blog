@@ -1,15 +1,48 @@
+:root {
+  --font-sans-serif: 'avenir next', 'avenir', sans-serif;
+  --font-monospace: monospace;
+
+  --width: 800px;
+
+  --color-text: #777;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* no scrollbar on Chrome */
 ::-webkit-scrollbar {
   display: none;
 }
 
-html {
-  margin-left: 1.8rem;
-  margin-right: 1.8rem;
-}
-body {
-  font-size: 14.875;
+html, body {
+  font-family: var(--font-sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+
+  color: var(--color-text);
+
+  margin: 0;
+  padding: 0;
 }
 
+p {
+  line-height: 1.5;
+}
+
+.header, .entries {
+  width: var(--width);
+  max-width: var(--width);
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
 #content hr {
   border-top: none;
   margin-top: 1.4rem;
@@ -81,3 +114,4 @@ pre {
     flex-flow: column nowrap;
   }
 }
+*/

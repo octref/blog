@@ -1,0 +1,5 @@
+<div class="entry">
+  <!-- <a class="link" href="{{ substr .RelPermalink 0 -5 }}">{{ .Title }}</a> -->
+  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  <span>{{ .Date.Format "2006-01-02" }}</span>
+</div>
