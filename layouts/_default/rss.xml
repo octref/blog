@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ .Site.Title }} </title>
-    <link>http://code.matsu.io</link>
+    <link>http://blog.matsu.io</link>
 
     {{ range where .Data.Pages "Type" "!=" "custom"}}
     <item>
       <title>{{ .Title }}</title>
-      <link>http://code.matsu.io{{ .RelPermalink }}</link>
+      <link>http://blog.matsu.io{{ .RelPermalink }}</link>
     </item>
     {{ end }}
 

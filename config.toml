@@ -1,6 +1,6 @@
-baseurl = "http://code.matsu.io/"
+baseurl = "http://blog.matsu.io/"
 languageCode = "en-us"
-title = "code.matsu"
+title = "Pine Wu's Blog"
 
 uglyurls = true
 
@@ -11,5 +11,6 @@ disableKinds = ["sitemap"]
   DateForm = "2006-01-02"
 
 [blackfriday]
-  smartpants = false
+  smartypants = false
   plainIDAnchors = true
+
