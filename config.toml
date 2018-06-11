@@ -2,7 +2,7 @@ baseurl = "http://blog.matsu.io/"
 languageCode = "en-us"
 title = "Pine Wu's Blog"
 
-uglyurls = true
+uglyURLs = true
 
 hasCJKLanguage = true
 disableKinds = ["sitemap"]
