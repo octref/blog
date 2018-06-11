@@ -1,16 +1,77 @@
 @import "https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css";
 
+:root {
+  --ease: cubic-bezier(.82, 0, .12, 1);
+  --width: 800px;
+  --header-height: 400px;
+
+  --tracking: 0.05rem;
+  --tracking-medium: 0.5rem;
+  --tracking-large: 0.8rem;
+
+  --dark: #000;
+  --blue: #33A9FF;
+  --light-gray: #fafafa;
+
+  --bg: #fff;
+  --fg: #868E96;
+  --fg-dark: #212529;
+  --grape: #5f3dc4;
+
+  --selection-bg: var(--blue);
+  --selection-fg: white;
+}
+
+/**
+ * Reset
+ */
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+
+/**
+ * Elements
+ */
+
+a {
+  position: relative;
+  outline: none !important;
+  text-decoration: none;
+}
+a {
+  color: #6f92ba;
+  transition: color .4s;
+}
+a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #6f92ba;
+  transform: scaleX(0);
+  transition: all 0.2s var(--ease) 0s;
+}
+a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+/**
+ * Chrome
+ */
+
 ::-webkit-scrollbar {
   display: none;
 }
 
-html {
-  margin-left: 1.8rem;
-  margin-right: 1.8rem;
-}
-body {
-  font-size: 14.875;
-}
+/**
+ * Skeleton
+ */
 
 #content hr {
   border-top: none;
@@ -19,17 +80,6 @@ body {
   max-width: 44rem !important;
 }
 
-a {
-  outline: none !important;
-  text-decoration: none;
-}
-#content a {
-  color: #6f92ba;
-  transition: color .4s;
-}
-#content a:hover, #content a:focus {
-  color: #4772a3;
-}
 
 #header {
   max-width: 34rem;
