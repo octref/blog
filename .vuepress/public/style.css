@@ -107,7 +107,7 @@ a {
  */
 
 code {
-  font-family: Inconsolata !important;
+  font-family: Inconsolata, monospace !important;
   border-radius: 2px;
   padding: .2rem .3rem;
   background-color: var(--lightgray);
