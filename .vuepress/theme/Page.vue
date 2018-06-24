@@ -1,5 +1,5 @@
 <template>
-  <div class="f6 avenir">
+  <div class="f6">
     <Nav :page="$page" />
 
     <section id="main" class="gray mb6 lh-copy">

@@ -1,5 +1,5 @@
 <template>
-  <div class="f6 avenir">
+  <div class="f6">
     <header id="header" class="measure-wide center mt6 mb4">
       <nav>
         <div class="mb2 dib">

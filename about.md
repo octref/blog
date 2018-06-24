@@ -14,3 +14,5 @@ Some projects that I work on:
 - [Polacode](https://github.com/octref/polacode): Polaroid for your code.
 
 You can find me on [GitHub](https://github.com/octref) and [Twitter](https://twitter.com/octref).
+
+Say hi to me at [octref@gmail.com](mailto:octref@gmail.com).

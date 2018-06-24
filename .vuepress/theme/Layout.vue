@@ -1,8 +1,6 @@
 <template>
-  <div class="theme-container">
-    <Home v-if="$page.frontmatter.home"/>
-    <Page v-else></Page>
-  </div>
+  <Home v-if="$page.frontmatter.home"/>
+  <Page v-else></Page>
 </template>
 
 <script>

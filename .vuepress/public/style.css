@@ -1,25 +1,10 @@
-@import "https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css";
+@import 'https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 
 :root {
   --ease: cubic-bezier(.82, 0, .12, 1);
-  --width: 800px;
-  --header-height: 400px;
-
-  --tracking: 0.05rem;
-  --tracking-medium: 0.5rem;
-  --tracking-large: 0.8rem;
-
-  --dark: #000;
-  --blue: #33A9FF;
-  --light-gray: #fafafa;
-
-  --bg: #fff;
-  --fg: #868E96;
-  --fg-dark: #212529;
-  --grape: #5f3dc4;
-
-  --selection-bg: var(--blue);
-  --selection-fg: white;
+  --azure: #6f92ba;
+  --lightgray: #f7f7f7;
 }
 
 /**
@@ -28,6 +13,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: avenir next, avenir, 'Open Sans', sans-serif;
 }
 html {
   font-size: 16px;
@@ -43,7 +29,7 @@ a {
   text-decoration: none;
 }
 a {
-  color: #6f92ba;
+  color: var(--azure);
   transition: color .4s;
 }
 
@@ -54,7 +40,7 @@ a {
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: #6f92ba;
+  background-color: var(--azure);
   transform: scaleX(0);
   transition: all 0.2s var(--ease) 0s;
 }
@@ -64,7 +50,7 @@ a {
 }
 
 /**
- * Chrome
+ * Chrome Scrollbar
  */
 
 ::-webkit-scrollbar {
@@ -85,6 +71,10 @@ a {
 #header {
   max-width: 34rem;
 }
+#header nav {
+  display: flex;
+  justify-content: space-between;
+}
 
 #header a {
   padding: 1px 2px;
@@ -98,10 +88,6 @@ a {
   background-color: #777;
   color: #fff;
 }
-#header nav {
-  display: flex;
-  justify-content: space-between;
-}
 
 #main > ul,
 #main .content.custom > * {
@@ -110,15 +96,20 @@ a {
   margin-right: auto;
 }
 #main .content.custom pre,
-#main .content.custom figure {
+#main .content.custom figure,
+#main .content.custom blockquote {
   max-width: 44rem;
 }
+
+/**
+ * Code
+ */
 
 code {
   font-family: Inconsolata !important;
   border-radius: 2px;
   padding: .2rem .3rem;
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
 }
 code { white-space: nowrap; }
 pre code { white-space: pre; }
@@ -130,7 +121,17 @@ pre {
   overflow: auto;
   overflow-wrap: break-word;
   border-radius: 6px;
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
+}
+
+/**
+ * Blockquote
+ */
+
+blockquote {
+  background-color: var(--lightgray);
+  padding: 1rem;
+  font-style: italic;
 }
 
 @media only screen and (max-width: 340px) {
@@ -200,12 +201,6 @@ pre code .token.section {
 pre code .token.keyword,
 pre code .token.selector-tag {
   color: #8959a8;
-}
-
-.hljs {
-  display: block;
-  padding: 1em;
-  background-color: #f7f7f7;
 }
 
 pre code .token.emphasis {
