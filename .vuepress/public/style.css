@@ -1,5 +1,6 @@
 @import 'https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css';
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import 'https://fonts.googleapis.com/css?family=Inconsolata';
 
 :root {
   --ease: cubic-bezier(.82, 0, .12, 1);
@@ -13,10 +14,10 @@
 
 * {
   box-sizing: border-box;
-  font-family: avenir next, avenir, 'Open Sans', sans-serif;
 }
 html {
   font-size: 16px;
+  font-family: avenir next, avenir, 'Open Sans', sans-serif;
 }
 
 /**
