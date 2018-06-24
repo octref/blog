@@ -5,6 +5,6 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "vuepress": "https://github.com/octref/vuepress"
+    "vuepress": "git://github.com/octref/vuepress#master"
   }
 }
