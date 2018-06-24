@@ -51,7 +51,7 @@ Besides a [custom Vuepress theme](https://github.com/octref/blog/tree/master/.vu
 
 - Clean URL. Vuepress would redirect `/foo` to `/foo/`. I removed the redirect and made sure `/foo` would serve `/foo.md` with hot update.
 - Remove inline js / css for preloading and prefetching. I don't like them and it's easy to remove them - just disable the [`clientManifest`](https://ssr.vuejs.org/api/#clientmanifest) option for the SSR renderer. That does mean I can't use some functionalities such as scoped styles, but all my styles is in a simple ~200 lines [`/style.css`](/style.css) file.
-- RSS Support. RSS for this site is at [`/rss`](/feed.xml).
+- Basic RSS Support. RSS for this site is at [`/rss`](/feed.xml).
 - Remove SVG icon for external links. 
 
 The result looks pretty decent. I get:
