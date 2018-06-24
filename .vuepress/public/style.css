@@ -46,7 +46,8 @@ a {
   color: #6f92ba;
   transition: color .4s;
 }
-a:before {
+
+#main a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -57,10 +58,11 @@ a:before {
   transform: scaleX(0);
   transition: all 0.2s var(--ease) 0s;
 }
-a:hover:before {
+#main a:hover:before {
   visibility: visible;
   transform: scaleX(1);
 }
+
 /**
  * Chrome
  */
@@ -73,13 +75,12 @@ a:hover:before {
  * Skeleton
  */
 
-#content hr {
+#main hr {
   border-top: none;
   margin-top: 1.4rem;
   margin-bottom: 1.4rem;
   max-width: 44rem !important;
 }
-
 
 #header {
   max-width: 34rem;
@@ -97,15 +98,19 @@ a:hover:before {
   background-color: #777;
   color: #fff;
 }
+#header nav {
+  display: flex;
+  justify-content: space-between;
+}
 
-#content > ul,
-#content #text > * {
+#main > ul,
+#main .content.custom > * {
   max-width: 34rem;
   margin-left: auto;
   margin-right: auto;
 }
-#content #text pre,
-#content #text figure {
+#main .content.custom pre,
+#main .content.custom figure {
   max-width: 44rem;
 }
 
@@ -117,6 +122,10 @@ code {
 }
 code { white-space: nowrap; }
 pre code { white-space: pre; }
+pre code {
+  display: block;
+  padding: 1rem;
+}
 pre {
   overflow: auto;
   overflow-wrap: break-word;
@@ -129,7 +138,80 @@ pre {
     margin-left: 1rem;
     margin-right: 1rem;
   }
-  #content ul li {
+  #main ul li {
     flex-flow: column nowrap;
   }
+}
+
+/**
+ * Tomorrow Theme
+ */
+
+/* Tomorrow Comment */
+pre code .token.comment,
+pre code .token.quote {
+  color: #8e908c;
+}
+
+/* Tomorrow Red */
+pre code .token.variable,
+pre code .token.template-variable,
+pre code .token.tag,
+pre code .token.name,
+pre code .token.selector-id,
+pre code .token.selector-class,
+pre code .token.regexp,
+pre code .token.deletion {
+  color: #c82829;
+}
+
+/* Tomorrow Orange */
+pre code .token.number,
+pre code .token.built_in,
+pre code .token.builtin-name,
+pre code .token.literal,
+pre code .token.type,
+pre code .token.params,
+pre code .token.meta,
+pre code .token.link {
+  color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+pre code .token.attribute {
+  color: #eab700;
+}
+
+/* Tomorrow Green */
+pre code .token.string,
+pre code .token.symbol,
+pre code .token.bullet,
+pre code .token.addition {
+  color: #718c00;
+}
+
+/* Tomorrow Blue */
+pre code .token.title,
+pre code .token.section {
+  color: #4271ae;
+}
+
+/* Tomorrow Purple */
+pre code .token.keyword,
+pre code .token.selector-tag {
+  color: #8959a8;
+}
+
+.hljs {
+  display: block;
+  padding: 1em;
+  background-color: #f7f7f7;
+}
+
+pre code .token.emphasis {
+  font-style: italic;
+}
+
+pre code .token.strong {
+  font-weight: bold;
 }

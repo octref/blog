@@ -1,7 +1,6 @@
 ---
 title: "Debug Electron App with VS Code"
-date: "2016-09-18T15:27:00-08:00"
-url: "/debug-electron-vscode.html"
+date: "2016-09-18"
 ---
 
 Here is a guide to debugging Electron App with VS Code. It uses Electron 2.0, works on all platforms, and includes instruction for debugging both Main and Renderer process.
@@ -36,11 +35,11 @@ Fill `launch.json` with the following.
 }
 ```
 
+![Main Process](/debug-electron-vscode/main_process.png)
+
 The setting is pretty self-explanatory, use the `electron` in `node_modules` to run `main.js`.
 If you go to the Debug View and run `Debug Main Process`, you should see the code stopping
 at the breakpoints in `main.js`.
-
-{{< figure src="/img/1/main_process.png" >}}
 
 ## Renderer Process
 
@@ -49,10 +48,8 @@ lives in Renderer Process, it is of more interest.
 
 First, a high-level explanation as to how we'll make it work. Electron has a launch flag 
 `--remote-debugging-port`, which lets you specify a port for remote debugging. The language
-spoken at this port is [Chrome Debugging Protocol]
-(https://developer.chrome.com/devtools/docs/debugger-protocol),
-and VS Code has an extension that just handles that: [Debugger for Chrome]
-(https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-chrome).
+spoken at this port is [Chrome Debugging Protocol](https://developer.chrome.com/devtools/docs/debugger-protocol),
+and VS Code has an extension that just handles that: [Debugger for Chrome](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-chrome).
 
 ### Setting up
 
@@ -112,11 +109,11 @@ Now we are ready to go.
 
 I added two breakpoints in `renderer.js`, and ran `Debug Renderer Process` in the Debug View.
 
-{{< figure src="/img/1/renderer_process.png" >}}
+![Renderer Process](/debug-electron-vscode/renderer_process.png)
 
 Electron will stop on the second breakpoint if I click anywhere in the window:
 
-{{< figure src="/img/1/renderer_process_click.png" >}}
+![Renderer Process Click](/debug-electron-vscode/renderer_process_click.png)
 
 However, it wouldn't hit the first breakpoint. The reason is Debugger for Chrome would
 first launch Electron, and try to attach to the running process to debug it. When it
@@ -125,7 +122,7 @@ successfully attached itself, the first `console.log` had already been executed.
 The solution is to go to the Electron window and press `cmd+r` to reload, Electron will
 re-execute the renderer and hit the breakpoint.
 
-{{< figure src="/img/1/renderer_process_refresh.png" >}}
+![Renderer Process Refresh](/debug-electron-vscode/renderer_process_refresh.png)
 
 ### Transpiling
 
@@ -135,7 +132,7 @@ generated during transpilation, we can debug the original code in VS Code.
 I modified [electron/electron-quick-start](https://github.com/electron/electron-quick-start)
 to use Babel and Webpack to transpile ES6 code. Here I'm debugging the un-transpiled code:
 
-{{< figure src="/img/1/es6_debug.png" >}}
+![ES6 Debug](/debug-electron-vscode/es6_debug.png)
 
 Details are in this commit: [4bb4a93](https://github.com/octref/vscode-electron-debug/commit/4bb4a93)
 

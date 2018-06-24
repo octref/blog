@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "vuepress": "https://github.com/octref/vuepress"
+  }
+}
