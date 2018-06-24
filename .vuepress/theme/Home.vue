@@ -24,7 +24,7 @@ export default {
     postsOrderedByDate() {
       return this.$site.pages
         .filter(p => !p.frontmatter.top_page)
-        .sort((p1, p2) => p1 > p2)
+        .sort((p1, p2) => p1.frontmatter.date > p2.frontmatter.date)
         .reverse()
     },
     data() {
