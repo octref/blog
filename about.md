@@ -8,7 +8,7 @@ Hi, I'm Pine. I work on Visual Studio Code at Microsoft.
 
 Software engineer is my title, but I aim to become an Information Architect. In the literary level, I work to organize and present information at the right place & time. In a figurative sense, I try to approach programming with empathy and ethics, despite programming itself being a very technical endeavor.
 
-I'm also part of the Vue.js team and I build [Vetur](https://github.com/vuejs/vetur), a Language Server that enhances the Vue programming experience in an editor.
+I'm also part of the Vue.js team and I build [Vetur](https://github.com/vuejs/vetur), a Language Server that enhances the Vue editing experience.
 
 Some projects that I work on:
 
