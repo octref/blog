@@ -98,8 +98,12 @@ a {
 }
 #main .content.custom pre,
 #main .content.custom figure,
-#main .content.custom blockquote {
+#main .content.custom blockquote,
+#main .content.custom video {
   max-width: 44rem;
+}
+#main .content.custom video {
+  display: block;
 }
 
 /**
