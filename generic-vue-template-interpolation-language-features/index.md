@@ -188,6 +188,7 @@ However, this feature wouldn't be possible without many people's work behind the
 - 06/14/17: [Daniel Rosenwasser](https://github.com/DanielRosenwasser) (TS team) opened [PR](https://github.com/vuejs/vue/pull/5887) to add type definition to Vue.
 - 08/17/17: [HerringtonDarkholme](https://github.com/HerringtonDarkholme) continued with another [PR](https://github.com/vuejs/vue/pull/6391) to add type definition to Vue (the same guy who posted the "go home you're drunk" picture in the beginning).
 - 02/05/18: [Katashin](https://github.com/ktsn) sent [PR](https://github.com/vuejs/vetur/pull/681) for template type checking.
+- Thanks to [Toru Nagashima](https://github.com/mysticatea)'s great [vue-eslint-parser](https://github.com/mysticatea/vue-eslint-parser) that the template transformer depends upon.
 - Many [PRs](https://github.com/vuejs/vetur/pulls?q=is%3Apr+is%3Aclosed) and much help I have got from [HerringtonDarkholme](https://github.com/HerringtonDarkholme), [Nathan](https://github.com/sandersn) (TS Team) and [Daniel](https://github.com/DanielRosenwasser) (TS Team).
 - The wonderful [TS AST Viewer](https://ts-ast-viewer.com) by [David Sherret](https://github.com/dsherret). If you are working with TypeScript AST, check it out!
 
