@@ -5,7 +5,8 @@ module.exports = {
   markdown: {
     anchor: {
       permalink: false
-    }
+    },
+    linkify: true
   },
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],

@@ -104,6 +104,8 @@ a {
 }
 #main .content.custom video {
   display: block;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 /**
