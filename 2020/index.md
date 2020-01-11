@@ -24,7 +24,7 @@ Learn languages.
 Racket. Smalltalk.  
 Icelandic. French. Russian.
 
-Learn,
+Learn,  
 and teach.
 
 Make tools to aid myself,
