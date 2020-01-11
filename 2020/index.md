@@ -24,12 +24,16 @@ Learn languages.
 Racket. Smalltalk.  
 Icelandic. French. Russian.
 
-Make tools to aid my own study,  
-and others'.
+Learn,
+and teach.
+
+Make tools to aid myself,
+and others.
 
 Live a frugal routine.  
 Keep running.  
-Keep looking for a good cup of coffee.
+Keep looking for good coffee.
+Start making coffee.
 
 Learn to care and love.
 
