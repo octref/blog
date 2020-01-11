@@ -5,7 +5,7 @@ date: "2020-01-11"
 
 ![mine](/2020/mine.jpg)
 
-End my worrability.
+End my worryability.
 
 Against information consumerism.  
 Against aesthetic consumerism.
