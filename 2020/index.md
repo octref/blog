@@ -32,7 +32,7 @@ and others.
 
 Live a frugal routine.  
 Keep running.  
-Keep looking for good coffee.
+Keep looking for good coffee.  
 Start making coffee.
 
 Learn to care and love.
