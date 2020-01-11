@@ -27,7 +27,7 @@ Icelandic. French. Russian.
 Learn,  
 and teach.
 
-Make tools to aid myself,
+Make tools to aid myself,  
 and others.
 
 Live a frugal routine.  
