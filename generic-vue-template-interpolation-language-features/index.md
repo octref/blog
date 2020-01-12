@@ -135,14 +135,14 @@ For example, in the virtual file, `this.msg` could have a position like `(50, 53
 
 The only saint in the TypeScript namespace that could work with this hooligan virtual file is `ts.createPrinter`. The printer prints each Node sequentially, ignoring its position and only care about its syntax kind. So the new idea is:
 
-1. Transform the ESLint AST into TS AST in the invalid virtual file
+1. Transform the ESLint AST (we use `eslint-plugin-vue`'s parser to parse Vue templates) into TS AST in the invalid virtual file
     1. For each expression transformed into `ts.Node`, use `ts.setSourceMapRange` to set its source range. I just need a place to record the range of the original expression in SFC
 2. Print that invalid virtual file to get valid TS code
 3. Create a valid SourceFile from that valid TS code
 4. Create a sourcemap from original SFC to the final, valid virtual file
     1. Walk through the AST of both the invalid/valid virtual files. They should share the same structure.
     2. When a Node from the invalid virtual file has a source map range (from 1.1), create a mapping from that source map range to the range of the corresponding Node in the **valid virtual file**.
-    3. Do some special handling, since I would map `msg` to `this.msg`. When translating position from SFC to the virtual file, I would map positions like this: `|msg` => `this.|msg`, but when a diagnostic error occurs on `this.msg` in the virtual file, I map back both these positions `|this.msg` and `this.|msg` to the position of `|foo`.
+    3. Do some special handling, since I would map `msg` to `this.msg`. When translating position from SFC to the virtual file, I would map positions like this: `|msg` => `this.|msg`, but when a diagnostic error occurs on `this.msg` in the virtual file, I map back both these positions `|this.msg` and `this.|msg` to the position of `|msg`.
 
 An example of what's happening in step 4:
 
