@@ -3,6 +3,12 @@ title: "On Leaving"
 date: "2020-04-21"
 ---
 
+![sea](/on-leaving/sea.jpg)
+
+*Me, at Bozcaada, Turkey, 2017*
+
+---
+
 I'm leaving US soon. I booked a ticket from Seattle to Shanghai on May 8th. This puts an end to my work at Microsoft, as well as to my 8th year in US.
 
 I get a lot of questions, such as "why leave" or "what's next for you". So I wrote something down as an explanation for those who know me. Here follows my imaginary Q&A.
@@ -25,6 +31,7 @@ One reason for leaving is that I don't have enough time for myself. My full time
 - Working on my side projects that haven't progressed for a few months
 - Working on my project ideas that have grown into a long list (~30)
 - Studying photography
+- Drawing watercolor
 - Doing letterpress
 
 The list goes on. As you can see, I have a wide range of interests not necessarily related to programming. I think if my weekend hobby is to fiddle with the new filesystem API in Chrome, my current life would be somewhat more sustainable. When hobby and work align, you don't feel work is too much, because you spend the whole day working on things you enjoy. For me, I feel my interest has defiantly diverged from programming, so much as to make me feel I don't like programming per-se.
@@ -112,7 +119,7 @@ Actually when I look at the [VS Code 2020 roadmap](https://github.com/microsoft/
 
 It always takes leaving for me to realize my loss. I didn't really like Seattle. Lots of cars everywhere. Seldom any high-quality museum exhibitions. 545 that's always late. But I think I would miss it. The sunset from capitol hill. Every cup of coffee from Vivace, Analog, Atulea, Victoria, Ghost Note and Amandine. I would probably miss the homeless playing Knocking on Heaven's Door before Dick's, too.
 
-I don't know how to close this one out. So let me quote something, from The Sea Close By, by Camus, in Algiers:
+I don't know how to close this one out. So let me quote something, from The Sea Close By, by Camus, in Algiers.
 
 > At midnight, alone on the shore. One moment more and then I shall set sail. The sky itself has weighed anchor, with all its stars, like those ships which at this very hour gleam throughout the world with all their lights and illuminate dark harbour waters. Space and silence weigh equally upon the heart. A sudden love, a great work, a decisive act, a thought which transfigures, all these at certain moments bring the same unbearable anxiety, linked with an irresistible charm. Is living like this in the delicious anguish of being, in exquisite proximity to a danger whose name we do not know the same as rushing to our doom? Once again, without respite, let us go.
 >
