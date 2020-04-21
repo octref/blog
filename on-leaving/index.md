@@ -9,7 +9,7 @@ date: "2020-04-21"
 
 ---
 
-I'm leaving US soon. I booked a ticket from Seattle to Shanghai on May 8th. This puts an end to my work at Microsoft, as well as to my 8th year in US.
+I'm leaving US soon. I booked a ticket from Seattle to Shanghai on May 6th. This puts an end to my work at Microsoft, as well as to my 8th year in US.
 
 I get a lot of questions, such as "why leave" or "what's next for you". So I wrote something down as an explanation for those who know me. Here follows my imaginary Q&A.
 
