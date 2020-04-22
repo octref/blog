@@ -117,7 +117,7 @@ This has been a hard decision. I feel sad leaving VS Code. The team is great and
 
 Actually when I look at the [VS Code 2020 roadmap](https://github.com/microsoft/vscode/wiki/Roadmap), I see a lot of things I can contribute to. A lot of areas and features that I care deeply and can make better. Now the pandemic has made many people unemployed. With a well-paying, stable job and a good project to work on, sometime I do ask myself, is this the right time to quit my job, to leave, to venture into uncertainty?
 
-It always takes leaving for me to realize my loss. I didn't really like Seattle. Lots of cars everywhere. Seldom any high-quality museum exhibitions. 545 that's always late. But I think I would miss it. The sunset from capitol hill. Every cup of coffee from Vivace, Analog, Atulea, Victoria, Ghost Note and Amandine. I would probably miss the homeless playing Knocking on Heaven's Door before Dick's, too.
+It always takes leaving for me to realize my loss. I didn't really like Seattle. Lots of cars everywhere. Seldom any high-quality museum exhibitions. Buses that's always late. But I think I would miss it. The sunset from capitol hill. Every cup of coffee from Vivace, Analog, Atulea, Victoria, Ghost Note and Amandine. I would probably miss the homeless playing Knockin' on Heaven's Door before Dick's, too.
 
 I don't know how to close this one out. So let me quote something, from The Sea Close By, by Camus, in Algiers.
 
