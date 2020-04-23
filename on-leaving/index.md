@@ -119,7 +119,7 @@ Actually when I look at the [VS Code 2020 roadmap](https://github.com/microsoft/
 
 It always takes leaving for me to realize my loss. I didn't really like Seattle. Lots of cars everywhere. Seldom any high-quality museum exhibitions. Buses that's always late. But I think I would miss it. The sunset from capitol hill. Every cup of coffee from Vivace, Analog, Atulea, Victoria, Ghost Note and Amandine. I would probably miss the homeless playing Knockin' on Heaven's Door before Dick's, too.
 
-I don't know how to close this one out. So let me borrow something, written by the young Camus, standing before the sea of Algiers.
+I don't know how to close this one out. So let me borrow something, from the young Camus, standing before the sea of Algiers.
 
 > At midnight, alone on the shore. One moment more and then I shall set sail. The sky itself has weighed anchor, with all its stars, like those ships which at this very hour gleam throughout the world with all their lights and illuminate dark harbour waters. Space and silence weigh equally upon the heart. A sudden love, a great work, a decisive act, a thought which transfigures, all these at certain moments bring the same unbearable anxiety, linked with an irresistible charm. Is living like this in the delicious anguish of being, in exquisite proximity to a danger whose name we do not know the same as rushing to our doom? Once again, without respite, let us go.
 >
