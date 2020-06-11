@@ -66,10 +66,11 @@ Through the four years of Vetur's development, money hasn't been my purpose or c
 
 However, after quitting my job, I no longer have the luxury to ignore the money issue. On the one hand, my saving will run out one day and I need to plan for it. On the other hand, maintaining Vetur takes a significant slice of my time for personal research/study, which I quit my high-paying job for.
  
-Even though money is an unignorable matter for me now, I won't go for certain options. There are other language support extensions that [shift to proprietary licenses and charge money](https://github.com/bmewburn/vscode-intelephense). I want to make it clear that I'll never change the OSS license or charge you anything for using Vetur.
+Even though money is an unignorable matter for me now, I won't go for certain options. Some language extensions [charge money for premium features](https://github.com/bmewburn/vscode-intelephense). I'll never change the OSS license or charge you anything for using Vetur.
 
 If Vetur has made using Vue simpler and smoother for you, please consider a small sponsorship, like a cup of latte every month.
-If you are using Vetur to develop a commercial product that makes a lot of money, or if you are embedding Vetur in your commercial online IDE, please consider making a larger sponsorship.
+
+If you are using Vetur to develop a commercial product, or if you are embedding Vetur in your commercial online IDE, please consider making a larger sponsorship.
 
 Thank you for taking money out of my list of concerns, so I can focus on making Vetur great and contributing to the Vue ecosystem.
 
@@ -93,4 +94,4 @@ This list should take at least 2 months. I'll update the [roadmap](https://githu
 
 In the past, learning Vue, or any framework, tends to be a fragmented process. You read the API. Copy and adapt. Write some code. Find an error. Go back to reading the API. Fix the error. A lot of back and forth. Vetur blurs the line between the processes. You learn and write Vue in a single loop. Vetur speeds you up and gives you confidence.
 
-Sometimes I feel the process of learning Vue isn't that much different from traveling to a place, with a language and culture unbeknown to you. The sense of uncertainty is similar. You worry about using a wrong phrase. You Google anxiously for a good restaurant. My hope for Vetur is a tour guide of sorts, someone that always accompanies you, teaches you the slangs and take you to the local eateries, but then fades to the background, letting you savor the joy of exploration and discovery. I hope Vetur can help you play with Vue and have fun. I hope Vetur can help you build large applications confidently as well. It's a lot of work ahead, but that's my goal, and your generosity will help me getting there.
+Sometimes I feel the process of learning Vue isn't that much different from traveling to a place, with a language and culture unbeknown to you. The sense of uncertainty is similar. You worry about using a wrong phrase. You Google anxiously for a good restaurant. My hope for Vetur is a tour guide of sorts, someone that always accompanies you, teaches you the slangs and takes you to the local eateries, but then fades to the background, leaving to you the joy of exploration. I hope Vetur can help you play with Vue and have fun. I hope Vetur can help you build large applications confidently as well. It's a lot of work ahead, but that's my goal, and your generosity will help me getting there.
