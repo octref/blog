@@ -34,6 +34,9 @@ a {
   transition: color .4s;
 }
 
+#main a {
+  display: inline-block;
+}
 #main a:before {
   content: "";
   position: absolute;
