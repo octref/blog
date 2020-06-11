@@ -16,7 +16,7 @@ And a little bit of musing at the end.
 
 ## Status Quo
 
-Vetur now has 4.8 million downloads on [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=octref.vetur). [`vls`](https://github.com/vuejs/vetur/tree/master/server), the Vue Language Server, is being used in [Vim / NeoVim](https://github.com/neoclide/coc-vetur), [Emacs](https://github.com/emacs-lsp/lsp-mode/blob/master/lsp-vetur.el), [Atom](https://atom.io/packages/ide-vue), [Sublime Text](https://github.com/sublimelsp/LSP-vue) and [CodeSandbox](https://codesandbox.io/post/announcing-codesandbox-v3). Sometimes I'm surprised by Vetur's popularity as well.
+Vetur now has 4.8 million downloads on [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=octref.vetur). [`vls`](https://github.com/vuejs/vetur/tree/master/server), the Vue Language Server, is being used in [Vim/NeoVim](https://github.com/neoclide/coc-vetur), [Emacs](https://github.com/emacs-lsp/lsp-mode/blob/master/lsp-vetur.el), [Atom](https://atom.io/packages/ide-vue), [Sublime Text](https://github.com/sublimelsp/LSP-vue) and [CodeSandbox](https://codesandbox.io/post/announcing-codesandbox-v3). Sometimes I'm surprised by Vetur's popularity as well.
 
 Meanwhile, there are ~200 issues and ~40 PRs open. Assuming 1hr/bug in average, it would take me roughly 16 weeks to go through them. Sometimes [@ktsn](https://github.com/ktsn) and [@yoyo930021](https://github.com/yoyo930021) help me with triaging issues and sending bugfixes, but I'm still mainly responsible for making fixes and reviewing PRs.
 
@@ -43,7 +43,7 @@ I [quit my job](https://blog.matsu.io/on-leaving) at Microsoft and is now doing 
 With so many features, I think it's no longer feasible for me to tackle all issues by myself. Many others have wanted to help, but I haven't made Vetur easy to contribute to. Here are my plans to make contribution smoother:
 
 - Have clear issue templates and standards. Strictly close all issues that don't adhere to them.
-- Isolate feature areas that can be independently owned and delegate them to other contributors. Establish clear interfaces between Vetur and those independent areas.
+- Isolate feature areas that can be independently developed. Establish clear interfaces between Vetur and those independent areas.
 - Review PR in a timely manner (I haven't been doing so).
 - Write more docs for contributing to each area. For example, how to add a new framework support? How to debug and fix a TextMate grammar issue? How to track down a perf issue?
 
@@ -91,6 +91,6 @@ This list should take at least 2 months. I'll update the [roadmap](https://githu
 
 ## Musing
 
-In the past, learning and using Vue, or any framework, tend to be a fragmented process. You read the API. Copy and adapt. Find an error. Go back to reading the API. Fix the error. A lot of back and forth. Vetur blurs the line between the processes. You learn, write, debug and use Vue in a single loop. Vetur speeds you up and gives you confidence.
+In the past, learning Vue, or any framework, tends to be a fragmented process. You read the API. Copy and adapt. Write some code. Find an error. Go back to reading the API. Fix the error. A lot of back and forth. Vetur blurs the line between the processes. You learn and write Vue in a single loop. Vetur speeds you up and gives you confidence.
 
-Sometimes I feel the process of learning Vue isn't that much different from traveling to a place, with a language and culture unbeknown to you. The sense of uncertainty is similar. You worry about using a wrong phrase. You Google anxiously for a good restaurant. My hope for Vetur is a tour guide of sorts, someone that always accompanies you, teaches you the slangs and take you to the local eateries, but then fades to the background, letting you savor the joy of exploration and discovery. I hope Vetur can help you play fearlessly with Vue. I hope Vetur can help you build large applications confidently as well. It's a lot of work ahead, but that's my goal, and your generosity will help me getting there.
+Sometimes I feel the process of learning Vue isn't that much different from traveling to a place, with a language and culture unbeknown to you. The sense of uncertainty is similar. You worry about using a wrong phrase. You Google anxiously for a good restaurant. My hope for Vetur is a tour guide of sorts, someone that always accompanies you, teaches you the slangs and take you to the local eateries, but then fades to the background, letting you savor the joy of exploration and discovery. I hope Vetur can help you play with Vue and have fun. I hope Vetur can help you build large applications confidently as well. It's a lot of work ahead, but that's my goal, and your generosity will help me getting there.
