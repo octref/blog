@@ -34,7 +34,7 @@ Vetur is now in a position to help shaping up the Vue ecosystem. Vetur's [Framew
 
 Supporting Vue has been Vetur's focus, but I'm happy to see Vetur being used in the wider web community, whether for Vue-related development or unrelated projects. For example, [vscode-weex](https://github.com/weex-cli/vscode-weex) uses Vetur to support [weex](https://weex.apache.org) and [sveltejs/language-tools](https://github.com/sveltejs/language-tools) builds on Vetur to support [svelte](https://svelte.dev).
 
-Overall, I feel with some bugfixes and PRs, Vetur would be in a great shape again and provide a base ripe for innovation on web developement experience. I'll talk a bit about how I plan to continue its development.
+Overall, I feel with some bugfixes and PRs, Vetur would be in a great shape again and provide a base ripe for innovation on web development experience. I'll talk a bit about how I plan to continue its development.
 
 ## Development
 
@@ -54,7 +54,7 @@ Here are some of my personal plans:
 
 To be honest, maintaining an Open Source project isn't a lot of fun. There were times when I didn't want to look at all the notifications. But now I realized I should take a stronger stance. I wouldn't let money or urgency of issues take the fun out of this project. I won't spend 40hr/week just fixing arcane bugs. Having some time for fun is not optional, but essential:
 
-> I think that it’s extraordinarily important that we in computer science keep fun in computing. When it started out, it was an awful lot of fun. Of course, the paying customers got shafted every now and then, and after a while we began to take their complaints seriously. We began to feel as if we really were responsible for the successful, error-free perfect use of these machines. I don’t think we are. I think we’re responsible for stretching them, setting them oﬀ in new directions, and keeping fun in the house. I hope the ﬁeld of computer science never loses its sense of fun. Above all, I hope we don’t become missionaries. Don’t feel as if you’re Bible salesmen. the world has too many of those already. What you know about computing other people will learn. Don’t feel as if the key to successful computing is only in your hands. What’s in your hands, I think and hope, is intelligence: the ability to see the machine as more than when you were ﬁrst led up to it, that you can make it more.
+> I think that it’s extraordinarily important that we in computer science keep fun in computing. When it started out, it was an awful lot of fun. Of course, the paying customers got shafted every now and then, and after a while we began to take their complaints seriously. We began to feel as if we really were responsible for the successful, error-free perfect use of these machines. I don’t think we are. I think we’re responsible for stretching them, setting them oﬀ in new directions, and keeping fun in the house. I hope the ﬁeld of computer science never loses its sense of fun. Above all, I hope we don’t become missionaries. Don’t feel as if you’re Bible salesmen. the world has too many of those already. What you know about computing other people will learn. Don’t feel as if the key to successful computing is only in your hands. What’s in your hands, I think and hope, is intelligence: the ability to see the machine as more than when you were first led up to it, that you can make it more.
 >
 > — Alan J. Perlis
 
@@ -83,7 +83,7 @@ Here are things I'll focus on in the near term:
   - Accommodate more complex project setup.
 - Finalize an interchange format that describe shape of a Vue component. Frameworks should generate data of this format and give it to Vetur. `vls` should generate data of this format on-the-fly for user components. This data is then used for language features such as auto-completion and error-checking.
 - Improve [VTI](https://github.com/vuejs/vetur/tree/master/vti).
-- Improve performance. Create performance test suites and investiagte performance issues.
+- Improve performance. Create performance test suites and investigate performance issues.
 - Bring Windows support on par with macOS/Linux support.
 - Improve support for prettier/prettier-eslint.
 
@@ -93,4 +93,4 @@ This list should take at least 2 months. I'll update the [roadmap](https://githu
 
 In the past, learning and using Vue, or any framework, tend to be a fragmented process. You read the API. Copy and adapt. Find an error. Go back to reading the API. Fix the error. A lot of back and forth. Vetur blurs the line between the processes. You learn, write, debug and use Vue in a single loop. Vetur speeds you up and gives you confidence.
 
-Sometimes I feel the process of learning Vue isn't that much different from traveling to a place, with a language and culture unbeknown to you. The sense of uncertainty is similar. You worry about using a wrong phrase. You Google anxiously for a good restaurant. My hope for Vetur is a tour guide of sorts, someone that always accompanies you, teaches you the slangs and take you to the local eateries, but then fades to the background, lettting you savor the joy of exploration and discovery. I hope Vetur can help you play fearlessly with Vue. I hope Vetur can help you build large applications confidently as well. It's a lot of work ahead, but that's my goal, and your generosity will help me getting there.
+Sometimes I feel the process of learning Vue isn't that much different from traveling to a place, with a language and culture unbeknown to you. The sense of uncertainty is similar. You worry about using a wrong phrase. You Google anxiously for a good restaurant. My hope for Vetur is a tour guide of sorts, someone that always accompanies you, teaches you the slangs and take you to the local eateries, but then fades to the background, letting you savor the joy of exploration and discovery. I hope Vetur can help you play fearlessly with Vue. I hope Vetur can help you build large applications confidently as well. It's a lot of work ahead, but that's my goal, and your generosity will help me getting there.
