@@ -7,12 +7,12 @@ I haven't looked at Vetur for quite some time. Issues and PRs are piling up. I j
 
 This post has four sections:
 
-- Status quo: How is the project standing?
-- Development: My plan to continue developing Vetur.
-- Sponsorship: I'm starting a [sponsorship](https://github.com/sponsors/octref) to keep my work sustainable.
-- Direction: What are the current development focuses?
+- [Status quo](#status-quo): How is the project standing?
+- [Development](#development): My plan to continue developing Vetur.
+- [Sponsorship](#sponsorship): I'm starting a [sponsorship](https://github.com/sponsors/octref) to keep my work sustainable.
+- [Direction](#direction): What are the current development focuses?
 
-And a little bit of musing at the end.
+And a little bit of [musing](#musing) at the end.
 
 ## Status Quo
 
