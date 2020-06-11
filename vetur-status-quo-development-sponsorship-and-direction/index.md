@@ -38,7 +38,7 @@ Overall, I feel with some bugfixes and PRs, Vetur would be in a great shape agai
 
 ## Development
 
-I [quit my job](https://blog.matsu.io/on-leaving) at Microsoft and is now doing independent study/research at Shanghai. Given my other commitments, I'll have at most 15hr/week to contribute to Open Source. I plan to spend most of it on Vetur.
+I [quit my job](https://blog.matsu.io/on-leaving) at Microsoft and is now doing independent study/research at Shanghai. I had been busy through the transition, but now I'm settled down and ready to pick up development again. Given my other commitments, I'll have around 15hr/week to contribute to Open Source. I plan to spend most of it on Vetur.
 
 With so many features, I think it's no longer feasible for me to tackle all issues by myself. Many others have wanted to help, but I haven't made Vetur easy to contribute to. Here are my plans to make contribution smoother:
 
