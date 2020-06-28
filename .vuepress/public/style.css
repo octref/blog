@@ -24,17 +24,26 @@ html {
  * Elements
  */
 
-a {
+#main a {
+  color: var(--azure);
+}
+#main a {
+  text-decoration: none;
+}
+#main a:hover {
+  text-decoration: underline;
+}
+
+#main.page-home a {
   position: relative;
   outline: none !important;
   text-decoration: none;
 }
-a {
-  color: var(--azure);
+#main.page-home a {
   transition: color .4s;
 }
 
-#main a:before {
+#main.page-home a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -45,7 +54,7 @@ a {
   transform: scaleX(0);
   transition: all 0.2s var(--ease) 0s;
 }
-#main a:hover:before {
+#main.page-home a:hover:before {
   visibility: visible;
   transform: scaleX(1);
 }

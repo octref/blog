@@ -2,7 +2,7 @@
   <div class="f6">
     <Nav :page="$page" />
 
-    <section id="main" class="gray mb6 lh-copy">
+    <section id="main" class="page-home gray mb6 lh-copy">
       <ul class="ph0">
         <BlogItem
           v-for="(page ,i) in postsOrderedByDate"
