@@ -3,6 +3,10 @@ title: "Back to Blogging with Vuepress"
 date: "2018-06-24"
 ---
 
+Update 07/30/20: I removed Google Analytics to have a JavaScript free site. Enjoy.
+
+---
+
 I spent some time converting this blog to Vuepress. Here are the commits:
 
 - [octref/vuepress@81fe2db](https://github.com/octref/vuepress/commit/81fe2db8b64a5648c7ea13cbc1abcfb988a93ff9)
@@ -58,7 +62,7 @@ The result looks pretty decent. I get:
 
 - Clean URL with hot reloading working. When I'm editing `/foo.md`, `/foo` will get hot updates.
 - The home page is ~15KB and the output very readable. Subsequent navigation to each page is around 10kb excluding images.
-- Other than Google Analytics, which can be blocked by Ad blockers for people who care, there is 0 lines of JavaScript on the website.
+- ~~Other than Google Analytics, which can be blocked by Ad blockers for people who care, there is 0 lines of JavaScript on this website.~~ I removed Google Analytics as well. There's now 0 lines of JavaScript on this website.
 
 I can try to make my changes upstream, but I'm worried my changes won't reconcile with Vuepress's vision. Vuepress emits mostly static HTML files to be hydrated into an "app". But I don't want an app — I just want to use Vue as a composition tool for generating HTML.
 
