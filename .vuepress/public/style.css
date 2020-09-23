@@ -1,5 +1,5 @@
 @import 'https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css';
-@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 @import 'https://fonts.googleapis.com/css?family=Inconsolata';
 
 :root {
@@ -57,6 +57,18 @@ html {
 #main.page-home a:hover:before {
   visibility: visible;
   transform: scaleX(1);
+}
+
+#main b, #main strong {
+  font-weight: 600;
+}
+
+#main code {
+  padding: 0 .2rem;
+}
+
+#main pre code {
+  padding: 1rem;
 }
 
 /**
@@ -117,6 +129,12 @@ html {
   margin-bottom: 2rem;
 }
 
+#main .content.custom figure > a > img {
+  transition: filter .2s;
+}
+#main .content.custom figure > a > img:hover {
+  filter: blur(1px) opacity(0.9);
+}
 /**
  * Code
  */
@@ -139,6 +157,9 @@ pre {
   border-radius: 6px;
   background-color: var(--lightgray);
 }
+pre code .line {
+  opacity: 0.85;
+}
 
 /**
  * Blockquote
@@ -158,71 +179,4 @@ blockquote {
   #main ul li {
     flex-flow: column nowrap;
   }
-}
-
-/**
- * Tomorrow Theme
- */
-
-/* Tomorrow Comment */
-pre code .token.comment,
-pre code .token.quote {
-  color: #8e908c;
-}
-
-/* Tomorrow Red */
-pre code .token.variable,
-pre code .token.template-variable,
-pre code .token.tag,
-pre code .token.name,
-pre code .token.selector-id,
-pre code .token.selector-class,
-pre code .token.regexp,
-pre code .token.deletion {
-  color: #c82829;
-}
-
-/* Tomorrow Orange */
-pre code .token.number,
-pre code .token.built_in,
-pre code .token.builtin-name,
-pre code .token.literal,
-pre code .token.type,
-pre code .token.params,
-pre code .token.meta,
-pre code .token.link {
-  color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-pre code .token.attribute {
-  color: #eab700;
-}
-
-/* Tomorrow Green */
-pre code .token.string,
-pre code .token.symbol,
-pre code .token.bullet,
-pre code .token.addition {
-  color: #718c00;
-}
-
-/* Tomorrow Blue */
-pre code .token.title,
-pre code .token.section {
-  color: #4271ae;
-}
-
-/* Tomorrow Purple */
-pre code .token.keyword,
-pre code .token.selector-tag {
-  color: #8959a8;
-}
-
-pre code .token.emphasis {
-  font-style: italic;
-}
-
-pre code .token.strong {
-  font-weight: bold;
 }

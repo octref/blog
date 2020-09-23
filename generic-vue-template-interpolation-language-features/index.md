@@ -13,7 +13,7 @@ One thing people really wanted most was template type checking, and this popular
 
 Well, the statement is no longer true since Vetur's 0.19.0 release:
 
-<video autoplay="" loop="" muted="" playsinline="" controls="">
+<video autoplay loop muted playsinline controls>
   <source src="/generic-vue-template-interpolation-language-features/interpolation.mp4" type="video/mp4">
 </video>
 
