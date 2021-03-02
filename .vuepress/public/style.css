@@ -52,7 +52,7 @@ html {
   left: 0;
   background-color: var(--azure);
   transform: scaleX(0);
-  transition: all 0.2s var(--ease) 0s;
+  transition: transform 0.2s var(--ease) 0s;
 }
 #main.page-home a:hover:before {
   visibility: visible;
