@@ -3,7 +3,7 @@ title: "Basic Program"
 date: "2023-02-14"
 ---
 
-![me](/basic-program/me.png)
+![me](/basic-program/me.jpg)
 
 *Me, participating in the Michel Foucault reading group at Copper Mountain, Colorado, 2023*
 
