@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Stop breaking links with JavaScript | Pine Wu&#39;s Blog</title>
+    <meta name="description" content="Pine Wu&#39;s Blog">
+    <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
+    
+    
+    
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="f6"><header id="header" class="measure-wide center mt6 mb4"><nav><div class="mb2 dib"><a href="/" title="blog" class="gray link active">blog</a>
+      .
+      <a href="/about" title="matsu" class="gray link">matsu</a></div><div><a href="/feed.xml" title="matsu" class="rss gray link">/rss</a></div></nav></header><section id="main" class="page-post gray mb6 lh-copy"><ul class="ph0"><li class="flex justify-between pb3"><a href="/stop-breaking-links-with-javascript" class="link">Stop breaking links with JavaScript</a><span class="date gray">2020-04-26</span></li></ul><div class="content custom"><p>Link is a fundamental element of the web. Today, JavaScript is breaking it.</p><p>Let's take a look at Google. Search for &quot;salk institute&quot;. You'll see a small map to your right.</p><p>Left click - it opens Google Map.</p><p>Right click - open link in new tab - it goes to Google Search.</p><p></p><figure><img src="/stop-breaking-links-with-javascript/google-broken-map-link.gif" alt="Google broken map link"></figure><p></p><p>Twitter is even worse. Let's go to &quot;Explore / Trending&quot;.</p><p>Right click &quot;News&quot; - open link in new tab - it goes to &quot;For you&quot;.</p><p>Now under &quot;Trending&quot; - right click a trend - browser doesn't even know it's a link.</p><p></p><figure><img src="/stop-breaking-links-with-javascript/twitter-broken-link.gif" alt="Twitter broken link"></figure><p></p><p>This sucks for me, as I cannot rely on Cmd+Click to open link in a new tab. This sucks even more for disabled people, who cannot use screen readers to access the broken links.</p><p><code>&lt;a&gt;</code> has been there since the beginning of the World Wide Web. If you are not ready to
+implement all browser behaviors for <code>&lt;a&gt;</code> in <code>&lt;div&gt;</code>, and you are not making your <code>&lt;div&gt;</code> as accessible as <code>&lt;a&gt;</code>, use <code>&lt;a&gt;</code>.</p><p>It's unsettling to watch more and more people adding JavaScript only to break fundamental aspects of the web. Back button should go to previous page. Refresh should scroll to the same vertical reading position. Links should work like links.</p><p>It's interesting to note that such changes happened as more and more websites became &quot;apps&quot;. There is no &quot;link&quot; in apps. As people port the app experience onto the web, they reimplemented buttons, not links.</p></div></section></div></div>
+    
+  </body>
+</html>

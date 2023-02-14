@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Debug Electron App with VS Code | Pine Wu&#39;s Blog</title>
+    <meta name="description" content="Pine Wu&#39;s Blog">
+    <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
+    
+    
+    
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="f6"><header id="header" class="measure-wide center mt6 mb4"><nav><div class="mb2 dib"><a href="/" title="blog" class="gray link active">blog</a>
+      .
+      <a href="/about" title="matsu" class="gray link">matsu</a></div><div><a href="/feed.xml" title="matsu" class="rss gray link">/rss</a></div></nav></header><section id="main" class="page-post gray mb6 lh-copy"><ul class="ph0"><li class="flex justify-between pb3"><a href="/debug-electron-vscode" class="link">Debug Electron App with VS Code</a><span class="date gray">2016-09-18</span></li></ul><div class="content custom"><p>Here is a guide to debugging Electron App with VS Code. It uses Electron 2.0, works on all platforms, and includes instruction for debugging both Main and Renderer process.</p><p>I'll be using <a href="https://github.com/electron/electron-quick-start">electron/electron-quick-start</a>.
+Clone and open the project in VS Code. Then go to the Debug View and click the configure icon
+to make an empty <code>launch.json</code>.</p><p>You can also skip this tutorial and grab the code at: <a href="https://github.com/octref/vscode-electron-debug">octref/vscode-electron-debug</a></p><h2 id="main-process">Main Process</h2><p>Fill <code>launch.json</code> with the following.</p><pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #000000">{</span></span>
+<span class="line"><span style="color: #000000">  </span><span style="color: #005CC5">&quot;version&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;0.2.0&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">  </span><span style="color: #005CC5">&quot;configurations&quot;</span><span style="color: #000000">: [</span></span>
+<span class="line"><span style="color: #000000">    {</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;name&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;Debug Main Process&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;type&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;node&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;request&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;launch&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;cwd&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;${workspaceRoot}&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;runtimeExecutable&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;${workspaceRoot}/node_modules/.bin/electron&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;windows&quot;</span><span style="color: #000000">: {</span></span>
+<span class="line"><span style="color: #000000">        </span><span style="color: #005CC5">&quot;runtimeExecutable&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;${workspaceRoot}/node_modules/.bin/electron.cmd&quot;</span></span>
+<span class="line"><span style="color: #000000">      },</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;program&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;${workspaceRoot}/main.js&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;protocol&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;inspector&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">    }</span></span>
+<span class="line"><span style="color: #000000">  ]</span></span>
+<span class="line"><span style="color: #000000">}</span></span></code></pre><p></p><figure><img src="/debug-electron-vscode/main_process.png" alt="Main Process"></figure><p></p><p>The setting is pretty self-explanatory, use the <code>electron</code> in <code>node_modules</code> to run <code>main.js</code>.
+If you go to the Debug View and run <code>Debug Main Process</code>, you should see the code stopping
+at the breakpoints in <code>main.js</code>.</p><h2 id="renderer-process">Renderer Process</h2><p>Making Renderer process work involves more effort, but as most of Electron App's code
+lives in Renderer Process, it is of more interest.</p><p>First, a high-level explanation as to how we'll make it work. Electron has a launch flag
+<code>--remote-debugging-port</code>, which lets you specify a port for remote debugging. The language
+spoken at this port is <a href="https://developer.chrome.com/devtools/docs/debugger-protocol">Chrome Debugging Protocol</a>,
+and VS Code has an extension that just handles that: <a href="https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-chrome">Debugger for Chrome</a>.</p><h3 id="setting-up">Setting up</h3><h4 id="go-to-main-js-and-comment-out-this-line">Go to <code>main.js</code> and comment out this line:</h4><pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #24292E">mainWindow</span><span style="color: #000000">.</span><span style="color: #24292E">webContents</span><span style="color: #000000">.</span><span style="color: #6F42C1">openDevTools</span><span style="color: #000000">()</span></span></code></pre><p>Remote debugging doesn't work with multiple DevTools clients. We'll use the debugger in VS Code
+instead of Electron's DevTools.</p><h4 id="install-debugger-for-chrome">Install Debugger for Chrome</h4><p>Launch Quick Open, and enter <code>ext install debugger-for-chrome</code>.</p><h4 id="add-a-new-configuration-in-launch-json">Add a new configuration in <code>launch.json</code></h4><pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #000000">{</span></span>
+<span class="line"><span style="color: #000000">  </span><span style="color: #005CC5">&quot;version&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;0.2.0&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">  </span><span style="color: #005CC5">&quot;configurations&quot;</span><span style="color: #000000">: [</span></span>
+<span class="line"><span style="color: #000000">    {</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;name&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;Debug Renderer Process&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;type&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;chrome&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;request&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;launch&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;runtimeExecutable&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;${workspaceRoot}/node_modules/.bin/electron&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;windows&quot;</span><span style="color: #000000">: {</span></span>
+<span class="line"><span style="color: #000000">        </span><span style="color: #005CC5">&quot;runtimeExecutable&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;${workspaceRoot}/node_modules/.bin/electron.cmd&quot;</span></span>
+<span class="line"><span style="color: #000000">      },</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;runtimeArgs&quot;</span><span style="color: #000000">: [</span></span>
+<span class="line"><span style="color: #000000">        </span><span style="color: #032F62">&quot;${workspaceRoot}/main.js&quot;</span><span style="color: #000000">,</span></span>
+<span class="line"><span style="color: #000000">        </span><span style="color: #032F62">&quot;--remote-debugging-port=9222&quot;</span></span>
+<span class="line"><span style="color: #000000">      ],</span></span>
+<span class="line"><span style="color: #000000">      </span><span style="color: #005CC5">&quot;webRoot&quot;</span><span style="color: #000000">: </span><span style="color: #032F62">&quot;${workspaceRoot}&quot;</span></span>
+<span class="line"><span style="color: #000000">    }</span></span>
+<span class="line"><span style="color: #000000">  ]</span></span>
+<span class="line"><span style="color: #000000">}</span></span></code></pre><p>Most of the configuration is straightforward. 9222 is the port Debugger for Chrome uses
+by default, and <code>webRoot</code> tells Debugger for Chrome the location of the source code that
+we want to debug for.</p><h4 id="add-some-code-to-renderer-js">Add some code to <code>renderer.js</code></h4><pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #24292E">console</span><span style="color: #000000">.</span><span style="color: #6F42C1">log</span><span style="color: #000000">(</span><span style="color: #032F62">'hello world!'</span><span style="color: #000000">)</span></span>
+
+<span class="line"><span style="color: #24292E">document</span><span style="color: #000000">.</span><span style="color: #24292E">body</span><span style="color: #000000">.</span><span style="color: #6F42C1">addEventListener</span><span style="color: #000000">(</span><span style="color: #032F62">'click'</span><span style="color: #000000">, () </span><span style="color: #D73A49">=&gt;</span><span style="color: #000000"> {</span></span>
+<span class="line"><span style="color: #000000">  </span><span style="color: #24292E">console</span><span style="color: #000000">.</span><span style="color: #6F42C1">log</span><span style="color: #000000">(</span><span style="color: #032F62">'hello vscode!'</span><span style="color: #000000">)</span></span>
+<span class="line"><span style="color: #000000">})</span></span></code></pre><p>Now we are ready to go.</p><h3 id="debugging">Debugging</h3><p>I added two breakpoints in <code>renderer.js</code>, and ran <code>Debug Renderer Process</code> in the Debug View.</p><p></p><figure><img src="/debug-electron-vscode/renderer_process.png" alt="Renderer Process"></figure><p></p><p>Electron will stop on the second breakpoint if I click anywhere in the window:</p><p></p><figure><img src="/debug-electron-vscode/renderer_process_click.png" alt="Renderer Process Click"></figure><p></p><p>However, it wouldn't hit the first breakpoint. The reason is Debugger for Chrome would
+first launch Electron, and try to attach to the running process to debug it. When it
+successfully attached itself, the first <code>console.log</code> had already been executed.</p><p>The solution is to go to the Electron window and press <code>cmd+r</code> to reload, Electron will
+re-execute the renderer and hit the breakpoint.</p><p></p><figure><img src="/debug-electron-vscode/renderer_process_refresh.png" alt="Renderer Process Refresh"></figure><p></p><h3 id="transpiling">Transpiling</h3><p>Most modern Web apps are written in languages that transpile to JavaScript. If sourcemaps are
+generated during transpilation, we can debug the original code in VS Code.</p><p>I modified <a href="https://github.com/electron/electron-quick-start">electron/electron-quick-start</a>
+to use Babel and Webpack to transpile ES6 code. Here I'm debugging the un-transpiled code:</p><p></p><figure><img src="/debug-electron-vscode/es6_debug.png" alt="ES6 Debug"></figure><p></p><p>Details are in this commit: <a href="https://github.com/octref/vscode-electron-debug/commit/4bb4a93">4bb4a93</a></p><h2 id="why-all-the-hassle">Why all the hassle?</h2><p>You get all the nice features in VS Code while debugging, like:</p><ul><li><a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition">Go to Definition</a></li><li><a href="https://code.visualstudio.com/docs/editor/editingevolved#_peek">Peek definition</a></li><li>Use Vim commands to jump around, thanks to <a href="http://aka.ms/vscodevim">VSCodeVim</a></li><li>Code folding</li></ul><p>When inspecting DOM, I still need to go back to Chrome DevTools.
+But I find myself debugging much faster in VS Code, which I use everyday for coding.</p><h2 id="example-code">Example Code</h2><p>https://github.com/octref/vscode-electron-debug</p><p><a href="https://github.com/octref/vscode-electron-debug/issues/new">Open an issue</a> if you have any question.</p><hr><ul><li>2017-02-18: Updated <code>launch.json</code> format</li><li>2017-10-15: VSCode -&gt; VS Code</li><li>2018-06-10: Updated blog post for Electron 2.0</li></ul></div></section></div></div>
+    
+  </body>
+</html>
