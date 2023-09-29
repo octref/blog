@@ -1,10 +1,12 @@
 {
+  "private": true,
   "scripts": {
-    "dev": "vuepress dev",
-    "build": "vuepress build"
+    "build": "tsx scripts/index.ts"
   },
-  "devDependencies": {},
-  "dependencies": {
-    "vuepress": "git://github.com/octref/vuepress#master"
+  "devDependencies": {
+    "@types/node": "^20.6.5",
+    "marked": "^7.0.5",
+    "tsx": "^3.13.0",
+    "yaml": "^2.3.2"
   }
 }
