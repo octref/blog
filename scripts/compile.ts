@@ -1,5 +1,4 @@
 import fs from 'fs'
-import { marked } from 'marked'
 
 import {
   getPostLinksHtml,
@@ -11,15 +10,7 @@ import { parseFrontMatter } from './frontmatter'
 import { Post } from './types'
 import { STYLE_PATH } from './fs'
 import { lightnessify } from './lightness'
-
-const renderer = new marked.Renderer()
-renderer.image = function (href, title, text) {
-  const newHref = `/media${href}`
-  return `<img src="${newHref}" alt="${text}"${
-    title ? ` title="${title}"` : ''
-  } />`
-}
-marked.use({ gfm: true, breaks: true, renderer })
+import { renderMd } from './markdown'
 
 const css = fs.readFileSync(STYLE_PATH, 'utf-8')
 
@@ -75,10 +66,10 @@ export function compilePost(post: Post) {
     : `<li><a href='${post.urlPath}'>${data.title}</a></li>`
 
   const tagsHtml = data.tags
-    ? data.tags.map((tag) => `<a href='/tags/${tag}'>#${tag}</a>`).join(' ')
+    ? data.tags.map((tag: string) => `<a href='/tags/${tag}'>#${tag}</a>`).join(' ')
     : ''
 
-  const mdHtml = marked.parse(content)
+  const mdHtml = renderMd(post, content)
   const fullHtml = htmlTemplate({
     urlPath: post.urlPath,
     css,

@@ -34,7 +34,7 @@ Some todos I plan to work on:
 Here's a quick demo. You can also clone [octref/vue-prop-type-validation](https://github.com/octref/vue-prop-type-validation) to play with it:
 
 <video autoplay loop muted playsinline controls>
-  <source src="/vue-prop-type-validation/vue-prop-type-validation.mp4" type="video/mp4">
+  <source src="/media/vue-prop-type-validation/vue-prop-type-validation.mp4" type="video/mp4">
 </video>
 
 In the remainder of this post, I'll touch upon these topics:
@@ -49,7 +49,7 @@ To understand Prop Type Validation's benefits, let's take a look at two things. 
 
 Vue's prop type check doesn't use TypeScript types and doesn't generate errors on either IDE or CLI. If you pass a boolean to a string prop, you only get a warning in the browser console:
 
-![browser error](/vue-prop-type-validation/vue-prop-type-check-error.png)
+![browser error](vue-prop-type-check-error.png)
 
 For TypeScript users, this doesn't suffice. When people ask for "TypeScript support", what they really mean is "tooling support". Compiler that checks types. IDE that reveals type errors. Auto-completion of all properties in an object. Hover that shows type information. Reliable rename that works across the codebase. 
 
@@ -175,8 +175,10 @@ With pressure from applying to graduate school and from not having a regular pay
 
 *A map of my sponsors, [updated daily](https://github.com/octref/sponsors-map). I feel incredibly fortunate to be receiving support coming from five continents...thank y'all.*
 
+<div class="gallery">
 <figure>
   <a target="_blank" href="https://matsu.io/sponsors">
-    <img src="/vue-prop-type-validation/sponsors.png" />
+    <img src="/media/vue-prop-type-validation/sponsors.png" />
   </a>
 </figure>
+</div>

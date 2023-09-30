@@ -36,7 +36,7 @@ Fill `launch.json` with the following.
 }
 ```
 
-![Main Process](/debug-electron-vscode/main_process.png)
+![Main Process](main_process.png)
 
 The setting is pretty self-explanatory, use the `electron` in `node_modules` to run `main.js`.
 If you go to the Debug View and run `Debug Main Process`, you should see the code stopping
@@ -111,11 +111,11 @@ Now we are ready to go.
 
 I added two breakpoints in `renderer.js`, and ran `Debug Renderer Process` in the Debug View.
 
-![Renderer Process](/debug-electron-vscode/renderer_process.png)
+![Renderer Process](renderer_process.png)
 
 Electron will stop on the second breakpoint if I click anywhere in the window:
 
-![Renderer Process Click](/debug-electron-vscode/renderer_process_click.png)
+![Renderer Process Click](renderer_process_click.png)
 
 However, it wouldn't hit the first breakpoint. The reason is Debugger for Chrome would
 first launch Electron, and try to attach to the running process to debug it. When it
@@ -124,7 +124,7 @@ successfully attached itself, the first `console.log` had already been executed.
 The solution is to go to the Electron window and press `cmd+r` to reload, Electron will
 re-execute the renderer and hit the breakpoint.
 
-![Renderer Process Refresh](/debug-electron-vscode/renderer_process_refresh.png)
+![Renderer Process Refresh](renderer_process_refresh.png)
 
 ### Transpiling
 
@@ -134,7 +134,7 @@ generated during transpilation, we can debug the original code in VS Code.
 I modified [electron/electron-quick-start](https://github.com/electron/electron-quick-start)
 to use Babel and Webpack to transpile ES6 code. Here I'm debugging the un-transpiled code:
 
-![ES6 Debug](/debug-electron-vscode/es6_debug.png)
+![ES6 Debug](es6_debug.png)
 
 Details are in this commit: [4bb4a93](https://github.com/octref/vscode-electron-debug/commit/4bb4a93)
 

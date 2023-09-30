@@ -4,7 +4,7 @@ date: '2023-02-14'
 tags: ['life']
 ---
 
-![me](/basic-program/me.jpg)
+![me](me.jpg)
 
 *Me, participating in the Michel Foucault reading group at Copper Mountain, Colorado, 2023*
 

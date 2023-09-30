@@ -4,7 +4,7 @@ date: '2020-04-21'
 tags: ['life']
 ---
 
-![sea](/on-leaving/sea.jpg)
+![sea](sea.jpg)
 
 *Me, at Bozcaada, Turkey, 2017*
 

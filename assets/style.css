@@ -16,7 +16,8 @@
   --f-body: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
     helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
     sans-serif;
-  --f-mono: ui-monospace,SFMono-Regular,SF Mono, Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+  --f-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Monaco,
+    Liberation Mono, Lucida Console, monospace;
 }
 
 /**
@@ -27,7 +28,10 @@ body {
 }
 html {
   font-size: 14px;
-  font-family: avenir next, avenir, sans-serif;
+  font-family:
+    avenir next,
+    avenir,
+    sans-serif;
 }
 
 /**
@@ -70,7 +74,8 @@ footer {
  * nav
  */
 #header nav a {
-  transition: color var(--t-link-hover) var(--bez-ease),
+  transition:
+    color var(--t-link-hover) var(--bez-ease),
     opacity var(--t-link-hover) var(--bez-ease) 0.5s;
 }
 #header nav a:not(.active) {
@@ -227,10 +232,27 @@ footer {
   text-decoration: underline;
 }
 
-#content img,
-#content p:has(img) {
-  max-width: var(--l-wider);
+#content .gallery {
+  max-width: var(--l-base);
+  display: flex;
+  flex-flow: row nowrap;
 }
+#content .gallery figure {
+  margin: 0;
+  padding: 3px;
+  padding-top: 0;
+}
+#content .gallery figure:first-child {
+  padding-left: 0;
+}
+#content .gallery figure:last-child {
+  padding-right: 0;
+}
+
+#content .gallery img {
+  max-width: 100%;
+}
+
 #content video {
   max-width: var(--l-wider);
   display: block;

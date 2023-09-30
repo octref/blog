@@ -12,7 +12,7 @@ Left click - it opens Google Map.
 
 Right click - open link in new tab - it goes to Google Search.
 
-![Google broken map link](/stop-breaking-links-with-javascript/google-broken-map-link.gif)
+![Google broken map link](google-broken-map-link.gif)
 
 Twitter is even worse. Let's go to "Explore / Trending".
 
@@ -20,7 +20,7 @@ Right click "News" - open link in new tab - it goes to "For you".
 
 Now under "Trending" - right click a trend - browser doesn't even know it's a link.
 
-![Twitter broken link](/stop-breaking-links-with-javascript/twitter-broken-link.gif)
+![Twitter broken link](twitter-broken-link.gif)
 
 This sucks for me, as I cannot rely on Cmd+Click to open link in a new tab. This sucks even more for disabled people, who cannot use screen readers to access the broken links.
 

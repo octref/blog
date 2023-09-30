@@ -4,8 +4,12 @@
     "build": "tsx scripts/index.ts"
   },
   "devDependencies": {
+    "@types/markdown-it": "^13.0.2",
+    "@types/markdown-it-footnote": "^3.0.1",
     "@types/node": "^20.6.5",
-    "marked": "^7.0.5",
+    "image-size": "^1.0.2",
+    "markdown-it": "^13.0.2",
+    "markdown-it-footnote": "^3.0.3",
     "tsx": "^3.13.0",
     "yaml": "^2.3.2"
   }

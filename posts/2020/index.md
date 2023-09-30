@@ -4,7 +4,7 @@ date: '2020-01-11'
 tags: ['life']
 ---
 
-![mine](/2020/mine.jpg)
+![mine](mine.jpg)
 
 End my worryability.
 

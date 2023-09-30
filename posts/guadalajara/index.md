@@ -4,7 +4,7 @@ date: '2023-08-02'
 tags: ['life', 'travel']
 ---
 
-![matraz tostador](/guadalajara/matraz-tostador.jpg)
+![matraz tostador](matraz-tostador.jpg)
 
 _Alcove at the entrance of Matraz Tostador_
 

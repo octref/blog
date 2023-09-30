@@ -10,7 +10,7 @@ The motive traces back to my visit to Kafka Museum in 2017. It was close to suns
 
 On exhibition was Kafka's diary. Hastened by the "we are closing soon" broadcast from the janitor, I quickly snapped a few pictures in the dim light and went for the exit. In the evening, I transcribed and translated the diary text, with help from Google translate. Here's one from January 1922:
 
-![Kafka diary](/trost-des-schreibens/kafka-diary.png)
+![Kafka diary](kafka-diary.png)
 
 *Excerpt from Kafka's diary, at Kafka Museum, Prague, 2017*
 
@@ -24,7 +24,7 @@ Writing decouples action from observation. In response to observation, writing i
 
 The quickening of action-upon-observation commoditizes & commercializes action. In *Strategy Letter V*, Joel Spolsky came to the conclusion that "smart companies try to commoditize their products' complements." Today our likes, pins and retweets have been made complement of various platforms. They exact our responses, much like an assembly line demanding from workers their economic value but nothing surplus.
 
-![Chaplin in Modern Times](/trost-des-schreibens/modern-times.png)
+![Chaplin in Modern Times](modern-times.png)
 
 Writing establishes a domain where thoughts may survive from economic measurements. Although the domain is nebular, ideas come into shape when thoughts connect as patterns, much like constellations. I have wondered if linearity in writing tools has made it hader for certain ideas to form, or if book is inadequate for certain ideas to per-form. For example, in the domain of programming, recursion is as fundamental as sequence. Rarer are recursive ideas in books than on GitHub — is that an environment or tool induced concentration? 
 
@@ -32,7 +32,7 @@ Despite my fondness of long form writing, such as iA's [blog posts](https://ia.n
 
 The web provides a unique domain where one can be, at the same time, a writer, a typographer and a publisher. In addition to writing, one can fiddle with its form of presentation to the most minuscule level and participate in its dissemination to the broadest extent. It takes technical expertise and naïveté to wear all the hats, but it's tempting to efface the artificial boundaries that limit one's creation to a single spectrum. Here's an excerpt from Muriel Cooper's presentation on [Information Landscapes](https://www.youtube.com/watch?v=Qn9zCrIJzLs), presented at the TED5 Conference in 1994:
 
-![Information Landscapes](/trost-des-schreibens/cooper-typography.jpg)
+![Information Landscapes](cooper-typography.jpg)
 
 > A book has heft and weight. Chapters that divide the material into topics. There's a beginning and an end. But electronic information lies in a strange and complex new world without boundaries. To make it accessible not simply for the acquisition of data, but also to help people think better, we must invent new metaphors and models, something less linear than the Information Highway. Consider instead an information landscape, a space that allows you to peruse information by navigating in and out and then to investigate specific portions in both two and three dimensions.
 

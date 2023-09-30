@@ -10,12 +10,12 @@ The sad thing was they couldn't. You could make Vue and TS code compile together
 
 One thing people really wanted most was template type checking, and this popular [blog post](https://herringtondarkholme.github.io/2016/10/03/vue2-ts2/) written by [HerringtonDarkholme](https://github.com/HerringtonDarkholme), a Vue and TypeScript contributor, accurately summarized the situation:
 
-![blog](/generic-vue-template-interpolation-language-features/blog.png)
+![blog](blog.png)
 
 Well, the statement is no longer true since Vetur's 0.19.0 release:
 
 <video autoplay loop muted playsinline controls>
-  <source src="/generic-vue-template-interpolation-language-features/interpolation.mp4" type="video/mp4">
+  <source src="/media/generic-vue-template-interpolation-language-features/interpolation.mp4" type="video/mp4">
 </video>
 
 These Language Server Protocol [language features](https://code.visualstudio.com/api/language-extensions/programmatic-language-features#language-features-listing) become available for Vue interpolation expressions:
