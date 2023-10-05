@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Generic Vue Template Interpolation Language Features | Pine&#39;s Blog</title>
+  <meta name="description" content="Pine&#39;s Blog">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='128' cy='128' r='96' fill='%236f92ba' /%3E%3C/svg%3E" />
+  <style>
+  :root {
+  --l-base: 40rem;
+  --l-wider: 48rem;
+
+  --bez-ease: cubic-bezier(0.82, 0, 0.12, 1);
+  --t-link-hover: 0.2s;
+
+  --c-azure: rgb(111, 146, 186);
+  --c-azure-light: rgba(111, 146, 186, 0.56);
+  --c-gray: #777;
+  --c-bg-gray: #f7f7f7;
+
+  --f-heading: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --f-body: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --f-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Monaco,
+    Liberation Mono, Lucida Console, monospace;
+}
+
+/**
+ * reset
+ */
+body {
+  margin: 0;
+}
+html {
+  font-size: 14px;
+  font-family:
+    avenir next,
+    avenir,
+    sans-serif;
+}
+
+/**
+ * layout
+ */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body > * {
+  min-width: var(--l-base);
+  margin-left: auto;
+  margin-right: auto;
+}
+#main {
+  flex: 1;
+}
+
+#header,
+#links,
+#content > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+}
+footer {
+  margin-bottom: 8rem;
+  margin-top: 2rem;
+}
+#main {
+  margin-bottom: 8rem;
+}
+
+/**
+ * nav
+ */
+#header nav a {
+  transition:
+    color var(--t-link-hover) var(--bez-ease),
+    opacity var(--t-link-hover) var(--bez-ease) 0.5s;
+}
+#header nav a:not(.active) {
+  opacity: 0;
+}
+#header nav a#nav-home {
+  opacity: 1;
+}
+#header nav:hover a:not(.active) {
+  opacity: 1;
+}
+.page-home #header nav a {
+  opacity: 1;
+}
+
+#header nav a {
+  color: var(--c-gray);
+
+  position: relative;
+  text-decoration: none;
+}
+#header nav a.active {
+  color: var(--c-azure);
+}
+#header nav a:hover {
+  color: var(--c-azure-light);
+}
+#header nav a.active:hover {
+  color: var(--c-azure);
+}
+#header nav a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--c-azure-light);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--bez-ease) 0s;
+}
+#header nav a.active:before {
+  background-color: var(--c-azure);
+}
+#header nav a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+#header nav a.active:before {
+  transform: scaleX(1);
+}
+
+#header nav #nav-home:before {
+  display: none;
+}
+
+/**
+ * nav: home dot
+ */
+#header nav {
+  position: relative;
+}
+#header nav #nav-home {
+  position: absolute;
+  top: 50%;
+  left: -34px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+#header nav #nav-home-dot {
+  transition: fill 0.2s var(--bez-ease);
+  fill: var(--c-gray);
+}
+#header nav #nav-home:hover #nav-home-dot {
+  fill: var(--c-azure-light);
+}
+#header nav #nav-home.active #nav-home-dot {
+  fill: var(--c-azure);
+}
+
+/**
+ * main:links
+ */
+#links {
+  padding: 0;
+  max-width: var(--l-base);
+}
+#links li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+#links li:not(:first-child) {
+  padding-top: 1rem;
+}
+
+#links a {
+  color: var(--c-azure);
+
+  text-decoration: none;
+}
+#links a:hover {
+  text-decoration: underline;
+}
+
+#links .date {
+  color: var(--c-gray);
+}
+
+#links .tag:not(:first-child) {
+  margin-top: 2rem;
+}
+
+/**
+ * homepage only link animation
+ */
+.page-home #links a {
+  position: relative;
+  text-decoration: none;
+}
+.page-home #links a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--c-azure);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--bez-ease) 0s;
+}
+.page-home #links a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/**
+ * main::content
+ */
+#content {
+  color: var(--c-gray);
+}
+
+#content > * {
+  max-width: var(--l-base);
+}
+
+#content a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+#content a:hover {
+  text-decoration: underline;
+}
+
+#content .gallery {
+  max-width: var(--l-base);
+  display: flex;
+  flex-flow: row nowrap;
+}
+#content .gallery figure {
+  margin: 0;
+  padding: 3px;
+  padding-top: 0;
+}
+#content .gallery figure:first-child {
+  padding-left: 0;
+}
+#content .gallery figure:last-child {
+  padding-right: 0;
+}
+
+#content .gallery img {
+  max-width: 100%;
+}
+
+#content video {
+  max-width: var(--l-wider);
+  display: block;
+}
+
+#content blockquote {
+  box-sizing: border-box;
+  max-width: var(--l-wider);
+  background-color: var(--c-bg-gray);
+  padding: 1rem;
+  font-style: italic;
+}
+
+#content code {
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+#content p code {
+  background-color: var(--c-bg-gray);
+  padding: 2px 4px;
+}
+
+#content hr {
+  border-top: none;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  max-width: var(--l-wider);
+}
+
+#content ul {
+  padding-left: 1rem;
+}
+#content > ul {
+  padding-left: 0;
+}
+
+/**
+ * main::tags
+ */
+#tags {
+  max-width: var(--l-base);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+
+  text-align: right;
+}
+#tags a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+#tags a:hover {
+  text-decoration: underline;
+}
+
+/**
+ * footer
+ */
+footer {
+  text-align: right;
+}
+footer a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+<header id="header">
+<nav>
+  <div>
+    <a id="nav-home" href="/"><svg id="nav-home-dot" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" /></svg></a>
+
+    <a href="/about">/about</a>
+<a href="/lightness">/lightness</a>
+<a href="/tags">/tags</a>
+<a href="/feed.xml">/rss</a>
+  </div>
+</nav>
+</header>
+
+<section id="main">
+<ul id="links">
+<li><a href='/generic-vue-template-interpolation-language-features'>Generic Vue Template Interpolation Language Features</a><span class='date'>2019-04-23</span></li>
+</ul>
+<div id="content">
+<p>When Vue 2.0 and TypeScript 2.0 were released in 2016, people wanted to use them together.</p>
+<p>The sad thing was they couldn’t. You could make Vue and TS code compile together, but not without a lot of hassle. It’s neither elegant (what Vue is all about) nor type-safe (what TypeScript is all about). With Vue 2.5 shipping typing definition and Vue CLI 3’s improvements, it has become easier to setup a project with Vue and TypeScript. However, type-safety wise, there’s still a lot to be desired.</p>
+<p>One thing people really wanted most was template type checking, and this popular <a href="https://herringtondarkholme.github.io/2016/10/03/vue2-ts2/">blog post</a> written by <a href="https://github.com/HerringtonDarkholme">HerringtonDarkholme</a>, a Vue and TypeScript contributor, accurately summarized the situation:</p>
+<div class="gallery"><figure style="flex: 1">
+  <picture>
+    <img src="/media/generic-vue-template-interpolation-language-features/blog.png" alt="blog" />
+  </picture>
+</figure></div>
+<p>Well, the statement is no longer true since Vetur’s 0.19.0 release:</p>
+<video autoplay loop muted playsinline controls>
+  <source src="/media/generic-vue-template-interpolation-language-features/interpolation.mp4" type="video/mp4">
+</video>
+<p>These Language Server Protocol <a href="https://code.visualstudio.com/api/language-extensions/programmatic-language-features#language-features-listing">language features</a> become available for Vue interpolation expressions:</p>
+<ul>
+<li>Auto complete (introduced in 0.18.0)</li>
+<li>Diagnostics (error checking / type checking)</li>
+<li>Hover information</li>
+<li>Jump to definition</li>
+<li>Find References</li>
+</ul>
+<p>You can read more about how this feature works in Vetur’s <a href="https://vuejs.github.io/vetur/interpolation">documentation</a>. Other Language Clients using <a href="https://github.com/vuejs/vetur/tree/master/server">VLS</a> (Vue Language Server) &gt;= 0.0.50 should get those features too.</p>
+<p>This post explains how this feature was implemented.</p>
+<h2>Vetur</h2>
+<p><a href="https://github.com/vuejs/vetur">Vetur</a> is the VS Code extension for working with Vue files. It is a language server extension hosting the <a href="https://github.com/vuejs/vetur/tree/master/server">Vue Language Server</a>, which combines <a href="https://github.com/Microsoft/vscode-html-languageservice">HTML</a> / <a href="https://github.com/Microsoft/vscode-css-languageservice">CSS</a> / <a href="https://github.com/Microsoft/TypeScript">TypeScript</a> / <a href="https://github.com/d4rkr00t/language-stylus">Stylus</a> language servers to support the many embedded languages in <a href="https://vue-loader.vuejs.org/spec.html">Vue Single File Component</a>. You can read more about its features in <a href="https://vuejs.github.io/vetur/">Vetur documentation</a>.</p>
+<p>First, a rough explanation of how Vetur’s JS / TS / Vue support works:</p>
+<p>Vetur builds on top of TypeScript’s <a href="https://github.com/Microsoft/TypeScript/wiki/Using-the-Language-Service-API">Language Server API</a>. To make TypeScript understand Vue files, Vetur masks <code>.vue</code> files as TS files. For example, when you see a Single File Component (SFC) like this:</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+console.log('Vetur')
+&lt;/script&gt;
+</code></pre>
+<p>The TypeScript Language Service in Vetur sees this (<code>█</code> stands for space):</p>
+<pre><code class="language-ts">██████████
+█████████████
+███████████
+████████
+console.log('Vetur')
+█████████
+</code></pre>
+<p>Vetur then proxies all LSP request to and responses from TypeSript Language Service to the SFC to make language features work on SFC. As both files share same position of the actual TS code, the mapping is easy.</p>
+<h2>The Idea</h2>
+<p>In 2017, Vue core team member <a href="https://github.com/ktsn">Katashin</a> opened an <a href="https://github.com/vuejs/vetur/issues/209">issue</a> to discuss template expression type-checking. The proposed approach was:</p>
+<ul>
+<li>Extract <code>&lt;template&gt;</code> code from SFC</li>
+<li>Use <a href="https://github.com/mysticatea/vue-eslint-parser">vue-eslint-parser</a> to parse the program into an ESLint AST</li>
+<li>Write a custom AST transformer to transform the ESLint AST into a TypeScript SourceFile</li>
+<li>Feed the virtual file into TypeScript Language Service and call language feature APIs</li>
+<li>Map responses back to SFC</li>
+</ul>
+<p>This sounds like a lot of work and resource heavy, so I thought it’s never gonna happen. However, almost a year later, <a href="https://github.com/ktsn">Katashin</a> opened a <a href="https://github.com/vuejs/vetur/pull/681">Pull Request</a> to implement this feature. It more or less worked.</p>
+<p>For the <code>&lt;template&gt;</code> region in the above code, the transformed TypeScript code looks roughly like this:</p>
+<pre><code class="language-ts">import __Component from &quot;./Component.vue&quot;;
+import { __vlsRenderHelper, __vlsComponentHelper } from &quot;vue-editor-bridge&quot;;
+__vlsRenderHelper(__Component, function () {
+    __vlsComponentHelper(&quot;div&quot;, { props: {}, on: {}, directives: [] }, [this.msg]);
+});
+</code></pre>
+<p>The <code>__Component</code> refers to the SFC itself, which Vetur could resolve. The <code>__vls</code> helpers contextually type <code>this</code> in the function context:</p>
+<pre><code class="language-ts">export declare const __vlsRenderHelper: {
+  &lt;T&gt;(Component: (new (...args: any[]) =&gt; T), fn: (this: T) =&gt; any): any;
+};
+</code></pre>
+<p>When you type <code>m</code> inside the interpolation region:</p>
+<ul>
+<li><code>this.m</code> is generated in the virtual file</li>
+<li>Vetur queries TypeScript Language Service on the virtual file to get semantic errors</li>
+<li>Vetur gets an error on the span of <code>this.m</code>: <code>m doesn't exist on 'this'</code></li>
+<li>Vetur maps <code>this.m</code> back to the range of <code>m</code> inside the SFC</li>
+</ul>
+<p>This sounds all good, but at that time Vetur suffered from performance issues. Doing this <em>seems</em> to require spinning up another TypeScript Language Service. I supposed this would double the CPU / memory usage of Vetur, so I left the PR languish for quite some time.</p>
+<p>The other reason that I didn’t merge the PR in immediately was that I would want language features to “just work” inside the template interpolation regions. The PR only implements diagnostics, but I wanted to make sure the way it’s implemented would pave way for any language features.</p>
+<h2>Picking Up The Idea</h2>
+<p>After graduating in 2017 and then joining Microsoft, I haven’t had much time to work on Vetur. However, this year I managed to get three months to work full-time on Vetur (that’s why you see Vetur’s milestone on the VS Code <a href="https://github.com/Microsoft/vscode/issues/71830">iteration plan</a>).</p>
+<p>Looking back at the PR in 2019, I realized a few things:</p>
+<ul>
+<li>The PR actually avoided the “double Language Service” performance problem by using a single <code>ts.createDocumentRegistry</code> to manage the underlying documents for both Language Services.</li>
+<li>With Vetur’s bundled TypeScript 2.8, this wouldn’t work well. Many people are now on TS 3.0+, and if they are using new features in TS in the <code>&lt;script&gt;</code> region, the Language Service would crash or report wrong diagnostic errors.</li>
+<li>I cannot use it for template interpolation completion, because the ESLint parser can only parse complete expressions. When using auto completion, the source code is in invalid state 90% of the time.</li>
+<li>Other static language features that would work only on valid SourceFiles such as hover / references / definition would work fine.</li>
+</ul>
+<p>So, in preparation, I started building <a href="https://github.com/vuejs/vetur/blob/master/CHANGELOG.md#template-interpolation-completion">Template Interpolation Completion</a> with another approach (traversing the TypeScript AST in the original <code>.vue</code> file and generating the completion items myself), <a href="https://github.com/vuejs/vetur/blob/master/CHANGELOG.md#using-workspace-typescript-version">decoupled</a> Vetur from a fixed version of TypeScript, and upgraded Vetur to use TypeScript 3.3.</p>
+<p>Then I rebased the original PR off the current master. However, things aren’t all rosy. I ran into quite some problems.</p>
+<p>And for the sake of posterity, here are the details. Unless you are deep into Language Servers and TypeScript, this wouldn’t make much sense.</p>
+<h2>Problems</h2>
+<p>⚠️ Lots of Language Server Protocol and TypeScript jargons ahead. ⚠️</p>
+<p>When playing around with the PR, the two biggest issue I had were:</p>
+<ul>
+<li>TypeScript Language Service crashed a lot</li>
+<li>Some language features don’t work (specifically, jump to definition and find references)</li>
+</ul>
+<p>After some digging, I found that the cause was that the virtually transformed TS file didn’t satisfy certain constraints on <code>ts.SourceFile</code>.</p>
+<p>Normally, when you call <code>ts.createSourceFile</code> on a <code>string</code> of valid TypeScript code, you get a TS AST that has valid Nodes. Each Node has valid position. Each ParentNode has a range that neatly covers all its children’s ranges. TypeScript Language Service works well off those valid SourceFiles.</p>
+<p>Enter the hooligan virtual TS files whose Nodes are all synthetic (manually created with <code>ts.create...</code> call) and who have invalid positioning like <code>(-1, -1)</code>. The only few <code>ts.Expression</code> Nodes that have above zero positions have their positions set to the same position as the one in SFC.</p>
+<p>For example, in the virtual file, <code>this.msg</code> could have a position like <code>(50, 53)</code> despite it length is 7, and despite 200 instead of 50 characters of TS code precede it. Of course TypeScript Language Service would hate them and crash in protest.</p>
+<p>The only saint in the TypeScript namespace that could work with this hooligan virtual file is <code>ts.createPrinter</code>. The printer prints each Node sequentially, ignoring its position and only care about its syntax kind. So the new idea is:</p>
+<ol>
+<li>Transform the ESLint AST (we use <code>eslint-plugin-vue</code>’s parser to parse Vue templates) into TS AST in the invalid virtual file
+<ol>
+<li>For each expression transformed into <code>ts.Node</code>, use <code>ts.setSourceMapRange</code> to set its source range. I just need a place to record the range of the original expression in SFC</li>
+</ol>
+</li>
+<li>Print that invalid virtual file to get valid TS code</li>
+<li>Create a valid SourceFile from that valid TS code</li>
+<li>Create a sourcemap from original SFC to the final, valid virtual file
+<ol>
+<li>Walk through the AST of both the invalid/valid virtual files. They should share the same structure.</li>
+<li>When a Node from the invalid virtual file has a source map range (from 1.1), create a mapping from that source map range to the range of the corresponding Node in the <strong>valid virtual file</strong>.</li>
+<li>Do some special handling, since I would map <code>msg</code> to <code>this.msg</code>. When translating position from SFC to the virtual file, I would map positions like this: <code>|msg</code> =&gt; <code>this.|msg</code>, but when a diagnostic error occurs on <code>this.msg</code> in the virtual file, I map back both these positions <code>|this.msg</code> and <code>this.|msg</code> to the position of <code>|msg</code>.</li>
+</ol>
+</li>
+</ol>
+<p>An example of what’s happening in step 4:</p>
+<ul>
+<li>Suppose SFC has <code>msg</code> in an interpolation area in <code>(30, 33)</code></li>
+<li>The ESLint AST has a Node from <code>(30, 33)</code> capturing this expression</li>
+<li>The corresponding Node in the invalid virtual file would have content <code>this.msg</code> but position of <code>(-1, -1)</code></li>
+<li>During the transformation, mark <code>this.msg</code> Node 's <code>sourceMapRange</code> to <code>(30, 33)</code></li>
+<li>Print invalid virtual file</li>
+<li>Create new SourceFile from the print output</li>
+<li>Walk the AST of both the invalid virtual file and the valid virtual file. At each point I have a Node from either.</li>
+<li>When seeing a Node from invalid virtual file that has <code>sourceMapRange</code> set:
+<ul>
+<li>Get position of Node from valid virtual file. Something like <code>(150, 158)</code></li>
+<li>Create mapping between <code>(30, 33, 'x.vue')</code> to <code>(150, 157, 'x.vue.template')</code></li>
+<li>Create forward mapping <code>{30: 155, 31: 156, 32: 157, 33: 158}</code>. <code>this.</code> is skipped.</li>
+<li>Create backward mapping <code>{150: 30, 155: 33, 156: 31, 157: 32, 158: 33}</code></li>
+<li>The backward mapping <code>(150, 30)</code> ensures error spans on either <code>(150, 158)</code> or <code>(155, 158)</code> could be mapped back</li>
+</ul>
+</li>
+</ul>
+<p>After handling a few edge cases, this works well enough so I’m releasing it.</p>
+<h2>Some Todos</h2>
+<p>My next focus is to improve the CPU / memory usage of Vetur on large projects. However, there are a lot of nice things that could happen:</p>
+<ul>
+<li>Make rename work. Imagine pressing renaming on a <code>foo</code> prop, and all usages of <code>foo</code> in <code>&lt;template&gt;</code>, <code>this.foo</code> in <code>&lt;script&gt;</code>, and all components that pass <code>:foo</code> are updated!</li>
+<li>Make the language features work across boundary. Currently, finding references in <code>&lt;template&gt;</code> region collects references in <code>&lt;script&gt;</code>, but the reverse is not true.</li>
+<li>Bring other language features to interpolations, such as code actions (autofix), signature help (parameter hints), etc.</li>
+<li>Vue has had problems generating sourcemap from its templates. This makes it impossible to set break points in Vue SFC’s template regions. Maybe I can upstream my changes to generate correct sourcemap for Vue templates.</li>
+<li>Vue’s default <a href="https://template-explorer.vuejs.org/">template compiler</a> generates a render function using <code>with(this)</code>. With statement is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with">deprecated</a> and not supported well in TypeScript. That’s the main reason I couldn’t use Vue’s template compiler. Maybe me and <a href="https://github.com/ktsn">Katashin</a> could help with Vue 3’s template compiler so it can output easily-type-checkable render function, so we don’t have to continue to maintain the transformer, which is essentially another Vue template compiler.</li>
+<li>Error-tolerant parsing: When writing code, 90% of the time the code is syntactically invalid. However, to make language features work in those 90% of time, the parser should generate a mostly valid AST so language features could work on them. Currently when the template is invalid, Vetur doesn’t do any transformation. It would be great if Vetur could do this, so auto completion could work from the transformed virtual files.</li>
+<li>It would be great if Vue, <a href="https://github.com/vuejs/eslint-plugin-vue">eslint-plugin-vue</a> and Vetur could share the same parser.</li>
+<li>Incremental parsing: When you made a small change in a Vue template, Vetur should only re-parse the changed part and run its transformation, sourcemap updating and whatnot on the changed AST nodes.</li>
+<li>Offer a CLI version of <a href="https://github.com/vuejs/vetur/tree/master/server">Vue Language Server</a> so people can collect template diagnostic errors outside editor contexts.</li>
+</ul>
+<p>I’ll try to get to these things, but if you are interested in making some of these features happen, the source code is at <a href="https://github.com/vuejs/vetur">vuejs/vetur</a>. Contribution welcome!</p>
+<h2>Thanks</h2>
+<p>First and foremost, thanks to the amazing work <a href="https://github.com/ktsn">Katashin</a> has done!</p>
+<p>However, this feature wouldn’t be possible without many people’s work behind the scenes:</p>
+<ul>
+<li>05/06/17: Prior to <a href="https://github.com/ahejlsberg">Anders Hejlsberg</a>’s work on <a href="https://github.com/Microsoft/TypeScript/pull/14141">Contextual <code>this</code></a> in TS 2.3, it was impossible to type Vue component.</li>
+<li>06/14/17: <a href="https://github.com/DanielRosenwasser">Daniel Rosenwasser</a> (TS team) opened <a href="https://github.com/vuejs/vue/pull/5887">PR</a> to add type definition to Vue.</li>
+<li>08/17/17: <a href="https://github.com/HerringtonDarkholme">HerringtonDarkholme</a> continued with another <a href="https://github.com/vuejs/vue/pull/6391">PR</a> to add type definition to Vue (the same guy who posted the “go home you’re drunk” picture in the beginning).</li>
+<li>02/05/18: <a href="https://github.com/ktsn">Katashin</a> sent <a href="https://github.com/vuejs/vetur/pull/681">PR</a> for template type checking.</li>
+<li>Thanks to <a href="https://github.com/mysticatea">Toru Nagashima</a>’s great <a href="https://github.com/mysticatea/vue-eslint-parser">vue-eslint-parser</a> that the template transformer depends upon.</li>
+<li>Many <a href="https://github.com/vuejs/vetur/pulls?q=is%3Apr+is%3Aclosed">PRs</a> and much help I have got from <a href="https://github.com/HerringtonDarkholme">HerringtonDarkholme</a>, <a href="https://github.com/sandersn">Nathan</a> (TS Team) and <a href="https://github.com/DanielRosenwasser">Daniel</a> (TS Team).</li>
+<li>The wonderful <a href="https://ts-ast-viewer.com">TS AST Viewer</a> by <a href="https://github.com/dsherret">David Sherret</a>. If you are working with TypeScript AST, check it out!</li>
+</ul>
+
+</div>
+<div id="tags">
+<a href='/tags/tech'>#tech</a>
+</div>
+</section>
+
+<footer>
+  <div><a href="/lightness">one html ~8.7 kb and no javascript.</a></div>
+</footer>
+
+</body>
+</html>

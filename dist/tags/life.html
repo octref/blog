@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tag #life | Pine&#39;s Blog</title>
+  <meta name="description" content="Pine&#39;s Blog">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='128' cy='128' r='96' fill='%236f92ba' /%3E%3C/svg%3E" />
+  <style>
+  :root {
+  --l-base: 40rem;
+  --l-wider: 48rem;
+
+  --bez-ease: cubic-bezier(0.82, 0, 0.12, 1);
+  --t-link-hover: 0.2s;
+
+  --c-azure: rgb(111, 146, 186);
+  --c-azure-light: rgba(111, 146, 186, 0.56);
+  --c-gray: #777;
+  --c-bg-gray: #f7f7f7;
+
+  --f-heading: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --f-body: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --f-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Monaco,
+    Liberation Mono, Lucida Console, monospace;
+}
+
+/**
+ * reset
+ */
+body {
+  margin: 0;
+}
+html {
+  font-size: 14px;
+  font-family:
+    avenir next,
+    avenir,
+    sans-serif;
+}
+
+/**
+ * layout
+ */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body > * {
+  min-width: var(--l-base);
+  margin-left: auto;
+  margin-right: auto;
+}
+#main {
+  flex: 1;
+}
+
+#header,
+#links,
+#content > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+}
+footer {
+  margin-bottom: 8rem;
+  margin-top: 2rem;
+}
+#main {
+  margin-bottom: 8rem;
+}
+
+/**
+ * nav
+ */
+#header nav a {
+  transition:
+    color var(--t-link-hover) var(--bez-ease),
+    opacity var(--t-link-hover) var(--bez-ease) 0.5s;
+}
+#header nav a:not(.active) {
+  opacity: 0;
+}
+#header nav a#nav-home {
+  opacity: 1;
+}
+#header nav:hover a:not(.active) {
+  opacity: 1;
+}
+.page-home #header nav a {
+  opacity: 1;
+}
+
+#header nav a {
+  color: var(--c-gray);
+
+  position: relative;
+  text-decoration: none;
+}
+#header nav a.active {
+  color: var(--c-azure);
+}
+#header nav a:hover {
+  color: var(--c-azure-light);
+}
+#header nav a.active:hover {
+  color: var(--c-azure);
+}
+#header nav a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--c-azure-light);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--bez-ease) 0s;
+}
+#header nav a.active:before {
+  background-color: var(--c-azure);
+}
+#header nav a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+#header nav a.active:before {
+  transform: scaleX(1);
+}
+
+#header nav #nav-home:before {
+  display: none;
+}
+
+/**
+ * nav: home dot
+ */
+#header nav {
+  position: relative;
+}
+#header nav #nav-home {
+  position: absolute;
+  top: 50%;
+  left: -34px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+#header nav #nav-home-dot {
+  transition: fill 0.2s var(--bez-ease);
+  fill: var(--c-gray);
+}
+#header nav #nav-home:hover #nav-home-dot {
+  fill: var(--c-azure-light);
+}
+#header nav #nav-home.active #nav-home-dot {
+  fill: var(--c-azure);
+}
+
+/**
+ * main:links
+ */
+#links {
+  padding: 0;
+  max-width: var(--l-base);
+}
+#links li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+#links li:not(:first-child) {
+  padding-top: 1rem;
+}
+
+#links a {
+  color: var(--c-azure);
+
+  text-decoration: none;
+}
+#links a:hover {
+  text-decoration: underline;
+}
+
+#links .date {
+  color: var(--c-gray);
+}
+
+#links .tag:not(:first-child) {
+  margin-top: 2rem;
+}
+
+/**
+ * homepage only link animation
+ */
+.page-home #links a {
+  position: relative;
+  text-decoration: none;
+}
+.page-home #links a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--c-azure);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--bez-ease) 0s;
+}
+.page-home #links a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/**
+ * main::content
+ */
+#content {
+  color: var(--c-gray);
+}
+
+#content > * {
+  max-width: var(--l-base);
+}
+
+#content a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+#content a:hover {
+  text-decoration: underline;
+}
+
+#content .gallery {
+  max-width: var(--l-base);
+  display: flex;
+  flex-flow: row nowrap;
+}
+#content .gallery figure {
+  margin: 0;
+  padding: 3px;
+  padding-top: 0;
+}
+#content .gallery figure:first-child {
+  padding-left: 0;
+}
+#content .gallery figure:last-child {
+  padding-right: 0;
+}
+
+#content .gallery img {
+  max-width: 100%;
+}
+
+#content video {
+  max-width: var(--l-wider);
+  display: block;
+}
+
+#content blockquote {
+  box-sizing: border-box;
+  max-width: var(--l-wider);
+  background-color: var(--c-bg-gray);
+  padding: 1rem;
+  font-style: italic;
+}
+
+#content code {
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+#content p code {
+  background-color: var(--c-bg-gray);
+  padding: 2px 4px;
+}
+
+#content hr {
+  border-top: none;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  max-width: var(--l-wider);
+}
+
+#content ul {
+  padding-left: 1rem;
+}
+#content > ul {
+  padding-left: 0;
+}
+
+/**
+ * main::tags
+ */
+#tags {
+  max-width: var(--l-base);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+
+  text-align: right;
+}
+#tags a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+#tags a:hover {
+  text-decoration: underline;
+}
+
+/**
+ * footer
+ */
+footer {
+  text-align: right;
+}
+footer a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+<header id="header">
+<nav>
+  <div>
+    <a id="nav-home" href="/"><svg id="nav-home-dot" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" /></svg></a>
+
+    <a href="/about">/about</a>
+<a href="/lightness">/lightness</a>
+<a class="active" href="/tags">/tags</a>
+<a href="/feed.xml">/rss</a>
+  </div>
+</nav>
+</header>
+
+<section id="main">
+<ul id="links">
+<li class="tag"><a href="/tags/life">#life</a></li>
+<li><a href="/cooking-with-mimi">Cooking with Mimi</a><span class='date'>2023-10-05</span></li>
+<li><a href="/guadalajara">Guadalajara</a><span class='date'>2023-08-02</span></li>
+<li><a href="/basic-program">Basic Program</a><span class='date'>2023-02-14</span></li>
+<li><a href="/trost-des-schreibens">Trost des Schreibens</a><span class='date'>2021-02-24</span></li>
+<li><a href="/on-leaving">On Leaving</a><span class='date'>2020-04-21</span></li>
+<li><a href="/2020">2020</a><span class='date'>2020-01-11</span></li>
+</ul>
+<div id="content">
+
+</div>
+<div id="tags">
+
+</div>
+</section>
+
+<footer>
+  <div><a href="/lightness">one html ~2.2 kb and no javascript.</a></div>
+</footer>
+
+</body>
+</html>
