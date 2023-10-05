@@ -68,11 +68,17 @@ export function preprocessMd(post: Post, content: string) {
   return newlines.join('\n')
 }
 
+// putting two images side by side with same height
+// when base has flex: 1, calculate target flex ratio
 function getFlexRatio(baseImgPath: string, targetImgPath: string) {
-  const { width: bw, height: bh } = imgSize(baseImgPath)
-  const { width: tw, height: th } = imgSize(targetImgPath)
+  const { width: bw, height: bh, orientation: bo } = imgSize(baseImgPath)
+  const { width: tw, height: th, orientation: to } = imgSize(targetImgPath)
 
-  const ratio = ((th! / bh!) * bw!) / tw!
+  // rotate 90/270 degree, swap width and height
+  const r1 = bo && bo > 4 ? bh! / bw! : bw! / bh!
+  const r2 = to && to > 4 ? th! / tw! : tw! / th!
+
+  const ratio = r1 / r2
 
   return ratio
 }

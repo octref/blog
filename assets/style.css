@@ -283,6 +283,9 @@ footer {
 }
 
 #content ul {
+  padding-left: 1rem;
+}
+#content > ul {
   padding-left: 0;
 }
 
