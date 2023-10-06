@@ -46,7 +46,9 @@ export function preprocessMd(post: Post, content: string) {
       const firstImgSrcPath = path.resolve(post.srcPath, '..', imgs[0].img)
       imgs.forEach(({ img, alt }, i) => {
         const imgSrcPath = path.resolve(post.srcPath, '..', img)
-        const imgUrlPath = `/media` + path.resolve(post.urlPath, img)
+        const imgUrlPath = encodeExceptSlash(
+          `/media` + path.resolve(post.urlPath, img)
+        )
 
         const ratio = i === 0 ? 1 : getFlexRatio(imgSrcPath, firstImgSrcPath)
 
@@ -81,4 +83,11 @@ function getFlexRatio(baseImgPath: string, targetImgPath: string) {
   const ratio = r1 / r2
 
   return ratio
+}
+
+function encodeExceptSlash(input: string): string {
+  return input
+    .split('/')
+    .map((part) => encodeURIComponent(part))
+    .join('/')
 }
