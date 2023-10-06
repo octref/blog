@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trost des Schreibens | Pine&#39;s Blog</title>
+  <meta name="description" content="Pine&#39;s Blog">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='128' cy='128' r='96' fill='%236f92ba' /%3E%3C/svg%3E" />
+  <style>
+  :root {
+  --l-base: 40rem;
+  --l-wider: 48rem;
+
+  --bez-ease: cubic-bezier(0.82, 0, 0.12, 1);
+  --t-link-hover: 0.2s;
+
+  --c-azure: rgb(111, 146, 186);
+  --c-azure-light: rgba(111, 146, 186, 0.56);
+  --c-gray: #777;
+  --c-bg-gray: #f7f7f7;
+
+  --f-heading: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --f-body: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --f-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Monaco,
+    Liberation Mono, Lucida Console, monospace;
+}
+
+/**
+ * reset
+ */
+body {
+  margin: 0;
+}
+html {
+  font-size: 14px;
+  font-family:
+    avenir next,
+    avenir,
+    sans-serif;
+}
+
+/**
+ * layout
+ */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body > * {
+  min-width: var(--l-base);
+  margin-left: auto;
+  margin-right: auto;
+}
+#main {
+  flex: 1;
+}
+
+#header,
+#links,
+#content > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+}
+footer {
+  margin-bottom: 8rem;
+  margin-top: 2rem;
+}
+#main {
+  margin-bottom: 8rem;
+}
+
+/**
+ * nav
+ */
+#header nav a {
+  transition:
+    color var(--t-link-hover) var(--bez-ease),
+    opacity var(--t-link-hover) var(--bez-ease) 0.5s;
+}
+#header nav a:not(.active) {
+  opacity: 0;
+}
+#header nav a#nav-home {
+  opacity: 1;
+}
+#header nav:hover a:not(.active) {
+  opacity: 1;
+}
+.page-home #header nav a {
+  opacity: 1;
+}
+
+#header nav a {
+  color: var(--c-gray);
+
+  position: relative;
+  text-decoration: none;
+}
+#header nav a.active {
+  color: var(--c-azure);
+}
+#header nav a:hover {
+  color: var(--c-azure-light);
+}
+#header nav a.active:hover {
+  color: var(--c-azure);
+}
+#header nav a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--c-azure-light);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--bez-ease) 0s;
+}
+#header nav a.active:before {
+  background-color: var(--c-azure);
+}
+#header nav a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+#header nav a.active:before {
+  transform: scaleX(1);
+}
+
+#header nav #nav-home:before {
+  display: none;
+}
+
+/**
+ * nav: home dot
+ */
+#header nav {
+  position: relative;
+}
+#header nav #nav-home {
+  position: absolute;
+  top: 50%;
+  left: -34px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+#header nav #nav-home-dot {
+  transition: fill 0.2s var(--bez-ease);
+  fill: var(--c-gray);
+}
+#header nav #nav-home:hover #nav-home-dot {
+  fill: var(--c-azure-light);
+}
+#header nav #nav-home.active #nav-home-dot {
+  fill: var(--c-azure);
+}
+
+/**
+ * main:links
+ */
+#links {
+  padding: 0;
+  max-width: var(--l-base);
+}
+#links li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+#links li:not(:first-child) {
+  padding-top: 1rem;
+}
+
+#links a {
+  color: var(--c-azure);
+
+  text-decoration: none;
+}
+#links a:hover {
+  text-decoration: underline;
+}
+
+#links .date {
+  color: var(--c-gray);
+}
+
+#links .tag:not(:first-child) {
+  margin-top: 2rem;
+}
+
+/**
+ * homepage only link animation
+ */
+.page-home #links a {
+  position: relative;
+  text-decoration: none;
+}
+.page-home #links a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--c-azure);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--bez-ease) 0s;
+}
+.page-home #links a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/**
+ * main::content
+ */
+#content {
+  color: var(--c-gray);
+}
+
+#content > * {
+  max-width: var(--l-base);
+}
+
+#content a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+#content a:hover {
+  text-decoration: underline;
+}
+
+#content .gallery {
+  max-width: var(--l-base);
+  display: flex;
+  flex-flow: row nowrap;
+}
+#content .gallery figure {
+  margin: 0;
+  padding: 3px;
+  padding-top: 0;
+}
+#content .gallery figure:first-child {
+  padding-left: 0;
+}
+#content .gallery figure:last-child {
+  padding-right: 0;
+}
+
+#content .gallery img {
+  max-width: 100%;
+}
+
+#content video {
+  max-width: var(--l-wider);
+  display: block;
+}
+
+#content blockquote {
+  box-sizing: border-box;
+  max-width: var(--l-wider);
+  background-color: var(--c-bg-gray);
+  padding: 1rem;
+  font-style: italic;
+}
+
+#content code {
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+#content p code {
+  background-color: var(--c-bg-gray);
+  padding: 2px 4px;
+}
+
+#content hr {
+  border-top: none;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  max-width: var(--l-wider);
+}
+
+#content ul {
+  padding-left: 1rem;
+}
+#content > ul {
+  padding-left: 0;
+}
+
+/**
+ * main::tags
+ */
+#tags {
+  max-width: var(--l-base);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+
+  text-align: right;
+}
+#tags a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+#tags a:hover {
+  text-decoration: underline;
+}
+
+/**
+ * footer
+ */
+footer {
+  text-align: right;
+}
+footer a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+<header id="header">
+<nav>
+  <div>
+    <a id="nav-home" href="/"><svg id="nav-home-dot" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" /></svg></a>
+
+    <a href="/about">/about</a>
+<a href="/lightness">/lightness</a>
+<a href="/tags">/tags</a>
+<a href="/feed.xml">/rss</a>
+  </div>
+</nav>
+</header>
+
+<section id="main">
+<ul id="links">
+<li><a href='/trost-des-schreibens'>Trost des Schreibens</a><span class='date'>2021-02-24</span></li>
+</ul>
+<div id="content">
+<p>My new year’s resolution is to write more. Write, to find each observation and thought a proper place, to assimilate them, and to give shape to nascent ideas.</p>
+<p>The motive traces back to my visit to Kafka Museum in 2017. It was close to sunset time that I arrived. Although the museum was about to close, the janitor was kind enough to let me in. The exhibition was in German. Although I had learned German for a year in college, little did I recall during the visit. The grammar was recognizable and the words nostalgically vague. The sentences made no sense, but made impression on me nevertheless. The viewing experience eerily resembles me going back to China after having lived in US for eight years. Everything has changed, in an understandable way.</p>
+<p>On exhibition was Kafka’s diary. Hastened by the “we are closing soon” broadcast from the janitor, I quickly snapped a few pictures in the dim light and went for the exit. In the evening, I transcribed and translated the diary text, with help from Google translate. Here’s one from January 1922:</p>
+<div class="gallery"><figure style="flex: 1">
+  <picture>
+    <img src="/media/trost-des-schreibens/kafka-diary.png" alt="Kafka diary" />
+  </picture>
+</figure></div>
+<p><em>Excerpt from Kafka’s diary, at Kafka Museum, Prague, 2017</em></p>
+<blockquote>
+<p>„Merkwürdiger, geheimnisvoller, vielleicht gefährlicher, vielleicht erlösender Trost des Schreibens: das Hinausspringen aus der Totschlägerreihe Tat-Beobachtung, indem eine höhere Art von Beobachtung geschaffen wird, eine höhere, keine schärfere, und je höher sie ist, je unerreichbarer von der ‚Reihe‘ aus, desto unabhängiger wird sie, desto mehr eigenen Gesetzen der Bewegung folgend, desto unberechenbarer, freudiger, steigender ihr Weg.“</p>
+</blockquote>
+<blockquote>
+<p>“The strange, mysterious, dangerously rewarding consolation of writing is the escape from the suicidal conformity to the endless routine of action-observation, in search of a higher but not necessarily sharper type of observation. And the higher the observation ascends, the further it escapes from the mundane routine, following its own path towards the unpredictable, the joyful and the above.”</p>
+</blockquote>
+<p>Writing decouples action from observation. In response to observation, writing is a righteous gesture of non-action, demanding time for deliberation. What Kafka named “der Totschlägerreihe Tat-Beobachtung”, Calvino echoed in his new year’s letter on “worryability”:</p>
+<blockquote>
+<p>I would like this to signal the end of “wasted angst” in my life: I’ve never regretted anything so much as having particular individual worries, in a certain sense anachronistic ones, whereas general worries, worries about our time (or at any rate those that can be reduced to such: like your problem in paying the rent, for instance) are so many and so vast and so much “my own” that I feel they are enough to fill all my “worryability” and even my interest and enjoyment in living. So from now on I want to dedicate myself entirely to these latter (worries) — but I am already aware of the traps in this question and that’s why for some time now my first need has been to “de-journalistize” myself, to get myself out of the stranglehold that has dominated these last few years of my life, reading books to review immediately, commenting on something even before having to time to form an opinion on it. I want to build a new kind of daily program for myself where I can finally get into something, something definitive (within the limits of historical possibility), something not dishonest or insincere (unlike the way today’s journalist always behaves, more or less).</p>
+</blockquote>
+<p>The quickening of action-upon-observation commoditizes &amp; commercializes action. In <em>Strategy Letter V</em>, Joel Spolsky came to the conclusion that “smart companies try to commoditize their products’ complements.” Today our likes, pins and retweets have been made complement of various platforms. They exact our responses, much like an assembly line demanding from workers their economic value but nothing surplus.</p>
+<div class="gallery"><figure style="flex: 1">
+  <picture>
+    <img src="/media/trost-des-schreibens/modern-times.png" alt="Chaplin in Modern Times" />
+  </picture>
+</figure></div>
+<p>Writing establishes a domain where thoughts may survive from economic measurements. Although the domain is nebular, ideas come into shape when thoughts connect as patterns, much like constellations. I have wondered if linearity in writing tools has made it hader for certain ideas to form, or if book is inadequate for certain ideas to per-form. For example, in the domain of programming, recursion is as fundamental as sequence. Rarer are recursive ideas in books than on GitHub — is that an environment or tool induced concentration?</p>
+<p>Despite my fondness of long form writing, such as iA’s <a href="https://ia.net/design/blog">blog posts</a> or Maciej Cegłowski’s <a href="http://idlewords.com">stories</a> (online examples, there’s an abundance in books), I reserve special admiration for writing that couldn’t have existed outside the web, such as Andy Matuschak’s <a href="https://notes.andymatuschak.org">research notes</a> and Hundred Rabbits’ <a href="https://wiki.xxiivv.com">XXIIVV</a>. They are natives in the web and aliens for books. Without the underlying tools (Andy’s personal wiki engine &amp; <a href="https://github.com/XXIIVV/oscean">Oscean</a>) and the structures they provide, their writings would lose their brilliance. They defy a form/content split.</p>
+<p>The web provides a unique domain where one can be, at the same time, a writer, a typographer and a publisher. In addition to writing, one can fiddle with its form of presentation to the most minuscule level and participate in its dissemination to the broadest extent. It takes technical expertise and naïveté to wear all the hats, but it’s tempting to efface the artificial boundaries that limit one’s creation to a single spectrum. Here’s an excerpt from Muriel Cooper’s presentation on <a href="https://www.youtube.com/watch?v=Qn9zCrIJzLs">Information Landscapes</a>, presented at the TED5 Conference in 1994:</p>
+<div class="gallery"><figure style="flex: 1">
+  <picture>
+    <img src="/media/trost-des-schreibens/cooper-typography.jpg" alt="Information Landscapes" />
+  </picture>
+</figure></div>
+<blockquote>
+<p>A book has heft and weight. Chapters that divide the material into topics. There’s a beginning and an end. But electronic information lies in a strange and complex new world without boundaries. To make it accessible not simply for the acquisition of data, but also to help people think better, we must invent new metaphors and models, something less linear than the Information Highway. Consider instead an information landscape, a space that allows you to peruse information by navigating in and out and then to investigate specific portions in both two and three dimensions.</p>
+</blockquote>
+<p>That is part of what I meant to achieve: to create forms that make certain ideas writable and readable. My other interest is to create environments where nascent ideas, often fragile, can nourish and disseminate. Although this sounds way too ambitious, I take encouragement from a <a href="http://paulgraham.com/worked.html">recent essay</a> by Paul Graham, founder of Y Combinator and creator of Hacker News:</p>
+<blockquote>
+<p>In the summer of 2006, Robert and I started working on a new version of Arc. This one was reasonably fast, because it was compiled into Scheme. To test this new Arc, I wrote Hacker News in it. It was originally meant to be a news aggregator for startup founders and was called Startup News, but after a few months I got tired of reading about nothing but startups. Plus it wasn’t startup founders we wanted to reach. It was future startup founders. So I changed the name to Hacker News and the topic to whatever engaged one’s intellectual curiosity.</p>
+</blockquote>
+<p>I have wondered why I, and so many other people, keep coming back to HN. One reason might be Arc. I have found it difficult to point to any specific thing I like about HN. Then one day I realized that HN is likable because of its likeness to a language, consisting of bare elements that retain structures for expressions and of nothing more. The vacancy allows it to be filled with intellectually intriguing ideas.</p>
+<p>Writing is an escape, in search for a consolation. It’s my hope to jump out of the Tat-Beobachtung for something higher, and my goal to build tool/environment for those ideas to form and flourish.</p>
+
+</div>
+<div id="tags">
+<a href='/tags/life'>#life</a>
+</div>
+</section>
+
+<footer>
+  <div><a href="/lightness">one html ~6.2 kb and no javascript.</a></div>
+</footer>
+
+</body>
+</html>

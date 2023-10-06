@@ -1,6 +1,5 @@
 import markdownit from 'markdown-it'
 import markdownFootNote from 'markdown-it-footnote'
-import fs from 'fs'
 import imgSize from 'image-size'
 import path from 'path'
 import { Post } from './types'
@@ -74,10 +73,8 @@ export function preprocessMd(post: Post, content: string) {
 // putting two images side by side with same height
 // when base has flex: 1, calculate target flex ratio
 function getFlexRatio(baseImgPath: string, targetImgPath: string) {
-  const baseImg = fs.readFileSync(baseImgPath)
-  const targetImg = fs.readFileSync(targetImgPath)
-  const { width: bw, height: bh, orientation: bo } = imgSize(baseImg)
-  const { width: tw, height: th, orientation: to } = imgSize(targetImg)
+  const { width: bw, height: bh, orientation: bo } = imgSize(baseImgPath)
+  const { width: tw, height: th, orientation: to } = imgSize(targetImgPath)
 
   // rotate 90/270 degree, swap width and height
   const r1 = bo && bo > 4 ? bh! / bw! : bw! / bh!

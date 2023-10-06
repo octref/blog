@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Debug Electron App with VS Code | Pine&#39;s Blog</title>
+  <meta name="description" content="Pine&#39;s Blog">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='128' cy='128' r='96' fill='%236f92ba' /%3E%3C/svg%3E" />
+  <style>
+  :root {
+  --l-base: 40rem;
+  --l-wider: 48rem;
+
+  --bez-ease: cubic-bezier(0.82, 0, 0.12, 1);
+  --t-link-hover: 0.2s;
+
+  --c-azure: rgb(111, 146, 186);
+  --c-azure-light: rgba(111, 146, 186, 0.56);
+  --c-gray: #777;
+  --c-bg-gray: #f7f7f7;
+
+  --f-heading: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --f-body: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --f-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Monaco,
+    Liberation Mono, Lucida Console, monospace;
+}
+
+/**
+ * reset
+ */
+body {
+  margin: 0;
+}
+html {
+  font-size: 14px;
+  font-family:
+    avenir next,
+    avenir,
+    sans-serif;
+}
+
+/**
+ * layout
+ */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body > * {
+  min-width: var(--l-base);
+  margin-left: auto;
+  margin-right: auto;
+}
+#main {
+  flex: 1;
+}
+
+#header,
+#links,
+#content > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+}
+footer {
+  margin-bottom: 8rem;
+  margin-top: 2rem;
+}
+#main {
+  margin-bottom: 8rem;
+}
+
+/**
+ * nav
+ */
+#header nav a {
+  transition:
+    color var(--t-link-hover) var(--bez-ease),
+    opacity var(--t-link-hover) var(--bez-ease) 0.5s;
+}
+#header nav a:not(.active) {
+  opacity: 0;
+}
+#header nav a#nav-home {
+  opacity: 1;
+}
+#header nav:hover a:not(.active) {
+  opacity: 1;
+}
+.page-home #header nav a {
+  opacity: 1;
+}
+
+#header nav a {
+  color: var(--c-gray);
+
+  position: relative;
+  text-decoration: none;
+}
+#header nav a.active {
+  color: var(--c-azure);
+}
+#header nav a:hover {
+  color: var(--c-azure-light);
+}
+#header nav a.active:hover {
+  color: var(--c-azure);
+}
+#header nav a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--c-azure-light);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--bez-ease) 0s;
+}
+#header nav a.active:before {
+  background-color: var(--c-azure);
+}
+#header nav a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+#header nav a.active:before {
+  transform: scaleX(1);
+}
+
+#header nav #nav-home:before {
+  display: none;
+}
+
+/**
+ * nav: home dot
+ */
+#header nav {
+  position: relative;
+}
+#header nav #nav-home {
+  position: absolute;
+  top: 50%;
+  left: -34px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+#header nav #nav-home-dot {
+  transition: fill 0.2s var(--bez-ease);
+  fill: var(--c-gray);
+}
+#header nav #nav-home:hover #nav-home-dot {
+  fill: var(--c-azure-light);
+}
+#header nav #nav-home.active #nav-home-dot {
+  fill: var(--c-azure);
+}
+
+/**
+ * main:links
+ */
+#links {
+  padding: 0;
+  max-width: var(--l-base);
+}
+#links li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+#links li:not(:first-child) {
+  padding-top: 1rem;
+}
+
+#links a {
+  color: var(--c-azure);
+
+  text-decoration: none;
+}
+#links a:hover {
+  text-decoration: underline;
+}
+
+#links .date {
+  color: var(--c-gray);
+}
+
+#links .tag:not(:first-child) {
+  margin-top: 2rem;
+}
+
+/**
+ * homepage only link animation
+ */
+.page-home #links a {
+  position: relative;
+  text-decoration: none;
+}
+.page-home #links a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--c-azure);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--bez-ease) 0s;
+}
+.page-home #links a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/**
+ * main::content
+ */
+#content {
+  color: var(--c-gray);
+}
+
+#content > * {
+  max-width: var(--l-base);
+}
+
+#content a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+#content a:hover {
+  text-decoration: underline;
+}
+
+#content .gallery {
+  max-width: var(--l-base);
+  display: flex;
+  flex-flow: row nowrap;
+}
+#content .gallery figure {
+  margin: 0;
+  padding: 3px;
+  padding-top: 0;
+}
+#content .gallery figure:first-child {
+  padding-left: 0;
+}
+#content .gallery figure:last-child {
+  padding-right: 0;
+}
+
+#content .gallery img {
+  max-width: 100%;
+}
+
+#content video {
+  max-width: var(--l-wider);
+  display: block;
+}
+
+#content blockquote {
+  box-sizing: border-box;
+  max-width: var(--l-wider);
+  background-color: var(--c-bg-gray);
+  padding: 1rem;
+  font-style: italic;
+}
+
+#content code {
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+#content p code {
+  background-color: var(--c-bg-gray);
+  padding: 2px 4px;
+}
+
+#content hr {
+  border-top: none;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  max-width: var(--l-wider);
+}
+
+#content ul {
+  padding-left: 1rem;
+}
+#content > ul {
+  padding-left: 0;
+}
+
+/**
+ * main::tags
+ */
+#tags {
+  max-width: var(--l-base);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+
+  text-align: right;
+}
+#tags a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+#tags a:hover {
+  text-decoration: underline;
+}
+
+/**
+ * footer
+ */
+footer {
+  text-align: right;
+}
+footer a {
+  color: var(--c-azure);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+<header id="header">
+<nav>
+  <div>
+    <a id="nav-home" href="/"><svg id="nav-home-dot" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" /></svg></a>
+
+    <a href="/about">/about</a>
+<a href="/lightness">/lightness</a>
+<a href="/tags">/tags</a>
+<a href="/feed.xml">/rss</a>
+  </div>
+</nav>
+</header>
+
+<section id="main">
+<ul id="links">
+<li><a href='/debug-electron-vscode'>Debug Electron App with VS Code</a><span class='date'>2016-09-18</span></li>
+</ul>
+<div id="content">
+<p>Here is a guide to debugging Electron App with VS Code. It uses Electron 2.0, works on all platforms, and includes instruction for debugging both Main and Renderer process.</p>
+<p>I’ll be using <a href="https://github.com/electron/electron-quick-start">electron/electron-quick-start</a>.
+Clone and open the project in VS Code. Then go to the Debug View and click the configure icon
+to make an empty <code>launch.json</code>.</p>
+<p>You can also skip this tutorial and grab the code at: <a href="https://github.com/octref/vscode-electron-debug">octref/vscode-electron-debug</a></p>
+<h2>Main Process</h2>
+<p>Fill <code>launch.json</code> with the following.</p>
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;0.2.0&quot;,
+  &quot;configurations&quot;: [
+    {
+      &quot;name&quot;: &quot;Debug Main Process&quot;,
+      &quot;type&quot;: &quot;node&quot;,
+      &quot;request&quot;: &quot;launch&quot;,
+      &quot;cwd&quot;: &quot;${workspaceRoot}&quot;,
+      &quot;runtimeExecutable&quot;: &quot;${workspaceRoot}/node_modules/.bin/electron&quot;,
+      &quot;windows&quot;: {
+        &quot;runtimeExecutable&quot;: &quot;${workspaceRoot}/node_modules/.bin/electron.cmd&quot;
+      },
+      &quot;program&quot;: &quot;${workspaceRoot}/main.js&quot;,
+      &quot;protocol&quot;: &quot;inspector&quot;
+    }
+  ]
+}
+</code></pre>
+<div class="gallery"><figure style="flex: 1">
+  <picture>
+    <img src="/media/debug-electron-vscode/main_process.png" alt="Main Process" />
+  </picture>
+</figure></div>
+<p>The setting is pretty self-explanatory, use the <code>electron</code> in <code>node_modules</code> to run <code>main.js</code>.
+If you go to the Debug View and run <code>Debug Main Process</code>, you should see the code stopping
+at the breakpoints in <code>main.js</code>.</p>
+<h2>Renderer Process</h2>
+<p>Making Renderer process work involves more effort, but as most of Electron App’s code
+lives in Renderer Process, it is of more interest.</p>
+<p>First, a high-level explanation as to how we’ll make it work. Electron has a launch flag
+<code>--remote-debugging-port</code>, which lets you specify a port for remote debugging. The language
+spoken at this port is <a href="https://developer.chrome.com/devtools/docs/debugger-protocol">Chrome Debugging Protocol</a>,
+and VS Code has an extension that just handles that: <a href="https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-chrome">Debugger for Chrome</a>.</p>
+<h3>Setting up</h3>
+<h4>Go to <code>main.js</code> and comment out this line:</h4>
+<pre><code class="language-js">mainWindow.webContents.openDevTools()
+</code></pre>
+<p>Remote debugging doesn’t work with multiple DevTools clients. We’ll use the debugger in VS Code
+instead of Electron’s DevTools.</p>
+<h4>Install Debugger for Chrome</h4>
+<p>Launch Quick Open, and enter <code>ext install debugger-for-chrome</code>.</p>
+<h4>Add a new configuration in <code>launch.json</code></h4>
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;0.2.0&quot;,
+  &quot;configurations&quot;: [
+    {
+      &quot;name&quot;: &quot;Debug Renderer Process&quot;,
+      &quot;type&quot;: &quot;chrome&quot;,
+      &quot;request&quot;: &quot;launch&quot;,
+      &quot;runtimeExecutable&quot;: &quot;${workspaceRoot}/node_modules/.bin/electron&quot;,
+      &quot;windows&quot;: {
+        &quot;runtimeExecutable&quot;: &quot;${workspaceRoot}/node_modules/.bin/electron.cmd&quot;
+      },
+      &quot;runtimeArgs&quot;: [
+        &quot;${workspaceRoot}/main.js&quot;,
+        &quot;--remote-debugging-port=9222&quot;
+      ],
+      &quot;webRoot&quot;: &quot;${workspaceRoot}&quot;
+    }
+  ]
+}
+</code></pre>
+<p>Most of the configuration is straightforward. 9222 is the port Debugger for Chrome uses
+by default, and <code>webRoot</code> tells Debugger for Chrome the location of the source code that
+we want to debug for.</p>
+<h4>Add some code to <code>renderer.js</code></h4>
+<pre><code class="language-js">console.log('hello world!')
+
+document.body.addEventListener('click', () =&gt; {
+  console.log('hello vscode!')
+})
+</code></pre>
+<p>Now we are ready to go.</p>
+<h3>Debugging</h3>
+<p>I added two breakpoints in <code>renderer.js</code>, and ran <code>Debug Renderer Process</code> in the Debug View.</p>
+<div class="gallery"><figure style="flex: 1">
+  <picture>
+    <img src="/media/debug-electron-vscode/renderer_process.png" alt="Renderer Process" />
+  </picture>
+</figure></div>
+<p>Electron will stop on the second breakpoint if I click anywhere in the window:</p>
+<div class="gallery"><figure style="flex: 1">
+  <picture>
+    <img src="/media/debug-electron-vscode/renderer_process_click.png" alt="Renderer Process Click" />
+  </picture>
+</figure></div>
+<p>However, it wouldn’t hit the first breakpoint. The reason is Debugger for Chrome would
+first launch Electron, and try to attach to the running process to debug it. When it
+successfully attached itself, the first <code>console.log</code> had already been executed.</p>
+<p>The solution is to go to the Electron window and press <code>cmd+r</code> to reload, Electron will
+re-execute the renderer and hit the breakpoint.</p>
+<div class="gallery"><figure style="flex: 1">
+  <picture>
+    <img src="/media/debug-electron-vscode/renderer_process_refresh.png" alt="Renderer Process Refresh" />
+  </picture>
+</figure></div>
+<h3>Transpiling</h3>
+<p>Most modern Web apps are written in languages that transpile to JavaScript. If sourcemaps are
+generated during transpilation, we can debug the original code in VS Code.</p>
+<p>I modified <a href="https://github.com/electron/electron-quick-start">electron/electron-quick-start</a>
+to use Babel and Webpack to transpile ES6 code. Here I’m debugging the un-transpiled code:</p>
+<div class="gallery"><figure style="flex: 1">
+  <picture>
+    <img src="/media/debug-electron-vscode/es6_debug.png" alt="ES6 Debug" />
+  </picture>
+</figure></div>
+<p>Details are in this commit: <a href="https://github.com/octref/vscode-electron-debug/commit/4bb4a93">4bb4a93</a></p>
+<h2>Why all the hassle?</h2>
+<p>You get all the nice features in VS Code while debugging, like:</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition">Go to Definition</a></li>
+<li><a href="https://code.visualstudio.com/docs/editor/editingevolved#_peek">Peek definition</a></li>
+<li>Use Vim commands to jump around, thanks to <a href="http://aka.ms/vscodevim">VSCodeVim</a></li>
+<li>Code folding</li>
+</ul>
+<p>When inspecting DOM, I still need to go back to Chrome DevTools.
+But I find myself debugging much faster in VS Code, which I use everyday for coding.</p>
+<h2>Example Code</h2>
+<p><a href="https://github.com/octref/vscode-electron-debug">https://github.com/octref/vscode-electron-debug</a></p>
+<p><a href="https://github.com/octref/vscode-electron-debug/issues/new">Open an issue</a> if you have any question.</p>
+<hr>
+<ul>
+<li>2017-02-18: Updated <code>launch.json</code> format</li>
+<li>2017-10-15: VSCode -&gt; VS Code</li>
+<li>2018-06-10: Updated blog post for Electron 2.0</li>
+</ul>
+
+</div>
+<div id="tags">
+<a href='/tags/tech'>#tech</a>
+</div>
+</section>
+
+<footer>
+  <div><a href="/lightness">one html ~4.5 kb and no javascript.</a></div>
+</footer>
+
+</body>
+</html>
