@@ -50,10 +50,10 @@ Here are the rough recipes for them.
 - flatten each ball into a tortilla
 - heat up on a *comal*
 
-![sopa de guía.jpg](sopa de guía.jpg) ![mole negro](mole negro.jpg) ![tortilla de maíz azul](tortilla de maíz azul.jpg)
+![sopa de guía.jpg](sopa de guía.jpg) ![mole negro](mole negro.jpg) ![tortilla de maíz azul](tortilla de maíz azul.jpg)
 
 After two hours of toiling, we had our meal ready. Mimi gave us some fresh *agua de tuna* and thanked us for our effort. "*Mole negro* is not a casual dish you whip up for dinner," she said. In Mexico, *mole negro* is served in important occasions like marriage or *día de muertos*. In such occasions, the organizer finds all the grandmas that they can possibly find to take charge of the mole making. One time, the batch of mole Mimi was making was so gigantic that she had to keep stirring the mole for three hours until it's ready. For smaller families, they make a big batch of mole and eat it throughout weeks if not months. It's a monumental effort.
 
-![agua de tuna y sopa de guía](agua de tuna y sopa de guía.jpg) ![mole negro y tortilla de maíz azul](mole negro y tortilla de maíz azul.jpg)
+![agua de tuna y sopa de guía](agua de tuna y sopa de guía.jpg) ![mole negro y tortilla de maíz azul](mole negro y tortilla de maíz azul.jpg)
 
 We savored our food, and waved goodbye to Mimi.
