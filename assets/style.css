@@ -10,12 +10,7 @@
   --c-gray: #777;
   --c-bg-gray: #f7f7f7;
 
-  --f-heading: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
-    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
-    sans-serif;
-  --f-body: avenir next, avenir, -apple-system, BlinkMacSystemFont, segoe ui,
-    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
-    sans-serif;
+  --f-all: avenir next, avenir, sans-serif;
   --f-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Monaco,
     Liberation Mono, Lucida Console, monospace;
 }
@@ -28,10 +23,7 @@ body {
 }
 html {
   font-size: 14px;
-  font-family:
-    avenir next,
-    avenir,
-    sans-serif;
+  font-family: var(--f-all);
 }
 
 /**
@@ -40,7 +32,8 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* ios safarai calculate 100vh as screen size + titlebar */
+  min-height: 100dvh;
 }
 body > * {
   min-width: var(--l-base);
@@ -140,9 +133,8 @@ footer {
 }
 #header nav #nav-home {
   position: absolute;
-  top: 50%;
+  top: -3px;
   left: -34px;
-  transform: translateY(-50%);
   width: 24px;
   height: 24px;
 }
@@ -289,6 +281,10 @@ footer {
   padding-left: 0;
 }
 
+#content ol.footnotes-list {
+  padding-left: 1rem;
+}
+
 /**
  * main::tags
  */
@@ -320,4 +316,53 @@ footer a {
 }
 footer a:hover {
   text-decoration: underline;
+}
+
+/**
+ * mobile
+ */
+@media only screen and (max-width: 768px) {
+  :root {
+    --l-base: calc(100vw - 2rem);
+  }
+  html {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  #header nav a:not(.active) {
+    opacity: 1;
+  }
+
+  #header nav #nav-home {
+    position: relative;
+    top: 7px;
+    left: auto;
+  }
+
+  #header {
+    margin-top: 7rem;
+    margin-bottom: 1rem;
+  }
+
+  #main {
+    margin-bottom: 2rem;
+  }
+
+  #tags {
+    margin-top: 1rem;
+  }
+
+  footer {
+    margin-top: 1rem;
+    margin-bottom: 7rem;
+  }
+
+  #links li {
+    flex-flow: column nowrap;
+  }
+
+  #content > ul {
+    padding-left: 1rem;
+  }
 }
