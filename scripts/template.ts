@@ -58,7 +58,7 @@ ${tagsHtml}
 }
 
 const getNavHtml = (urlPath: string) => {
-  const dotSvg = `<svg id="nav-home-dot" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" /></svg>`
+  const dotSvg = `<svg id="nav-home-dot" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" /></svg>`
   const homeDot =
     urlPath === '/'
       ? `<a id="nav-home" class="active" href="/">${dotSvg}</a>`
